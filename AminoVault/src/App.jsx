@@ -1,11 +1,14 @@
 import Header from "./components/Header.jsx";
 import "./App.css";
+import HomePage from "./pages/HomePage.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
     <>
-      {/* This renders your custom component at the very top */}
       <Header />
+      <HomePage />
+      <Footer />
     </>
   );
 }
