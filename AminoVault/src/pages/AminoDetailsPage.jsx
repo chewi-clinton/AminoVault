@@ -31,52 +31,7 @@ const AminoDetailsPage = () => {
   );
 
   return (
-    <div className="amino-details-container">
-      <div className="top-promo-wrapper">
-        <div className="ticker-container">
-          <div className="ticker-label">BREAKING NEWS</div>
-          <div className="ticker-content">
-            <div className="ticker-text-wrapper">
-              <span>{newsText}</span>
-              <span>{newsText}</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="black-line"></div>
-
-        <section className="pricing-content">
-          <h2 className="section-title">Buy More, Save More</h2>
-          <ul className="deals-list">
-            <li>
-              <StarburstPercentIcon /> 15% OFF ALL ORDERS
-            </li>
-            <li>
-              <StarburstPercentIcon /> BUY 6+ Vials, SAVE 18%
-            </li>
-            <li>
-              <StarburstPercentIcon /> BUY 8+ Vials, SAVE 20%
-            </li>
-          </ul>
-          <p className="pricing-p">
-            Stock up and save more with AminoVault’s bulk pricing built for
-            serious buyers. Every order automatically gets 15% off, and the
-            savings increase as you buy more: 18% off when you purchase 6+ vials
-            and 20% off at 8+ vials. No codes, no hassle—just straightforward
-            volume discounts that make it easy to stay stocked. Plus, we include
-            FREE USPS Priority Shipping on every order, always. We deliver
-            faster without adding to your total.
-          </p>
-          <div className="btn-row-center">
-            <a href="/shop" className="btn-gradient">
-              SHOP OUR PEPTIDES
-            </a>
-          </div>
-        </section>
-
-        <div className="black-line"></div>
-      </div>
-
+    <div>
       <div className="about-grid-wrapper">
         <div className="about-left">
           <h2 className="about-title">About AminoVault</h2>
