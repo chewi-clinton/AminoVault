@@ -1,10 +1,8 @@
 FROM node:22-alpine AS build
 WORKDIR /app
-
-# Copy from the AminoVault subfolder
-COPY AminoVault/package*.json ./
-RUN npm ci --include=dev
-COPY AminoVault/ .
+COPY package*.json ./
+RUN npm install
+COPY . .
 RUN npm run build
 
 FROM nginx:alpine
