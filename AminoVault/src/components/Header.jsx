@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/Header.css";
 import logo from "../assets/amino_logo.webp";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("/");
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const handleLinkClick = (path) => {
+    setActiveLink(path);
+    setIsMenuOpen(false);
+  };
+
   return (
     <header>
       <div className="top-announcement">
@@ -15,7 +25,7 @@ const Header = () => {
           <span>Certified GMP - Produced In The USA!</span>
         </div>
         <div className="announcement-item">
-          <span className="shield-icon">🛡️</span>
+          <i aria-hidden="true" className="icofont icofont-shield-alt"></i>
           <span>
             The Trusted U.S. Source For Peak Performance Research Peptides
           </span>
@@ -28,15 +38,80 @@ const Header = () => {
         </div>
 
         <nav className="nav-menu">
-          <a href="/">Home</a>
-          <a href="/about">About Us</a>
-          <a href="/shop">Shop</a>
-          <a href="/resources">Resources</a>
-          <a href="/wholesale">Wholesale</a>
-          <a href="/contact" className="contact-btn">
+          <a
+            href="/"
+            className={activeLink === "/" ? "active" : ""}
+            onClick={() => handleLinkClick("/")}
+          >
+            Home
+          </a>
+          <a
+            href="/about"
+            className={activeLink === "/about" ? "active" : ""}
+            onClick={() => handleLinkClick("/about")}
+          >
+            About Us
+          </a>
+
+          <div className="nav-item">
+            <span
+              className={`dropdown-toggle ${activeLink.startsWith("/shop") ? "active" : ""}`}
+            >
+              Shop
+            </span>
+            <div className="dropdown-menu">
+              <a href="/shop">Shop All Peptides</a>
+              <a href="/shop/cellular">Cellular Structure & Matrix Research</a>
+              <a href="/shop/neurological">
+                Neurological Signaling & Cognitive Research
+              </a>
+              <a href="/shop/immune">
+                Immune Modulation & Regenerative Processes
+              </a>
+              <a href="/shop/musculoskeletal">
+                Musculoskeletal Function & Protein Synthesis Research
+              </a>
+              <a href="/shop/metabolic">
+                Metabolic Regulation & Energy Pathway Research
+              </a>
+            </div>
+          </div>
+
+          <div className="nav-item">
+            <span
+              className={`dropdown-toggle ${activeLink.startsWith("/resources") ? "active" : ""}`}
+            >
+              Resources
+            </span>
+            <div className="dropdown-menu">
+              <a href="/resources/faqs">FAQs</a>
+              <a href="/resources/lab-results">Lab Results</a>
+              <a href="/resources/blog">Blog</a>
+              <a href="/resources/order-tracking">Order Tracking</a>
+            </div>
+          </div>
+
+          <a
+            href="/wholesale"
+            className={activeLink === "/wholesale" ? "active" : ""}
+            onClick={() => handleLinkClick("/wholesale")}
+          >
+            Wholesale
+          </a>
+          <a
+            href="/contact"
+            className={activeLink === "/contact" ? "active" : ""}
+            onClick={() => handleLinkClick("/contact")}
+          >
             Contact Us
           </a>
         </nav>
+
+        <div className="hamburger" onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
         <div className="header-actions">
           <div className="cart-wrapper">
@@ -70,6 +145,27 @@ const Header = () => {
             </svg>
           </div>
         </div>
+      </div>
+
+      <div className={`mobile-menu ${isMenuOpen ? "active" : ""}`}>
+        <a href="/" onClick={() => handleLinkClick("/")}>
+          Home
+        </a>
+        <a href="/about" onClick={() => handleLinkClick("/about")}>
+          About Us
+        </a>
+        <a href="/shop" onClick={() => handleLinkClick("/shop")}>
+          Shop
+        </a>
+        <a href="/resources" onClick={() => handleLinkClick("/resources")}>
+          Resources
+        </a>
+        <a href="/wholesale" onClick={() => handleLinkClick("/wholesale")}>
+          Wholesale
+        </a>
+        <a href="/contact" onClick={() => handleLinkClick("/contact")}>
+          Contact Us
+        </a>
       </div>
     </header>
   );
