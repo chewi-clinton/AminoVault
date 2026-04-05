@@ -2,9 +2,9 @@ import React from "react";
 import "../styles/Footer.css";
 
 // Importing images as modules so the build tool processes them
-import footerLogo from "../assets/footer_logo.webp";
-import wreathGraphic from "../assets/about_img1.webp";
-import paymentIcons from "../assets/master.png";
+import footerLogo from "../assets/Footer_logo.webp";
+import wreathGraphic from "../assets/About_img1.webp";
+import paymentIcons from "../assets/Master.png";
 
 const Footer = () => {
   return (
