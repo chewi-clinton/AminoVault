@@ -1,0 +1,131 @@
+.trusted-nationwide-container {
+  width: 100%;
+  padding: 40px 0 80px;
+  background-image: url("https://aminovault.com/wp-content/uploads/2025/07/7e530dad-6685-4d85-a0ba-1582b30b7ef3-111.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  font-family: "DM Sans", sans-serif;
+}
+
+.trusted-content-wrapper {
+  max-width: 1320px;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.trusted-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+/* ============== VISIT OUR SHOP BUTTON ============== */
+.shop-button {
+  display: inline-block;
+  line-height: 1;
+  text-align: center;
+  transition: all 0.3s;
+  box-shadow: none;
+  text-decoration: none;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-width: 0;
+  transform: scale(1.1);
+  font-family: "Mulish", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  border-radius: 5px;
+  background-image: linear-gradient(90deg, #e81832 0%, #8a42ca 100%);
+}
+
+/* ============== TRUSTED NATIONWIDE TITLE ============== */
+.trusted-title {
+  margin: 0;
+  padding: 0;
+  font-family: "Michroma", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  text-transform: capitalize;
+  line-height: 1.1em;
+  color: #ffffff;
+}
+
+/* ============== STAT CARDS ============== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  padding: 40px 25px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.stat-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon-wrapper svg {
+  width: 100%;
+  height: 100%;
+  fill: #ca33d2;
+}
+
+/* ============== NUMBERS / PERCENTAGES ============== */
+.stat-value {
+  color: #000;
+  font-family: "Michroma", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 10px 0 12px;
+}
+
+/* ============== DESCRIPTION TEXT BELOW NUMBERS ============== */
+.stat-description {
+  text-align: center;
+  font-family: "Mulish", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5em;
+  color: #333333;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .trusted-title {
+    font-size: 32px;
+  }
+}
