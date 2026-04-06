@@ -1,8 +1,8 @@
 import React from "react";
-import "../styles/AminoDetailsPage.css";
+import "../../styles/AminoDetailsPage.css";
 
-import seenOnImg from "../assets/About_img1.webp";
-import productLineupImg from "../assets/About_img2.webp";
+import seenOnImg from "../../assets/About_img1.webp";
+import productLineupImg from "../../assets/About_img2.webp";
 
 const AminoDetailsPage = () => {
   const newsText =

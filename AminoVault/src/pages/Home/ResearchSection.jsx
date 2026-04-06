@@ -4,12 +4,12 @@ import { Pagination, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import "../styles/ResearchSection.css";
+import "../../styles/ResearchSection.css";
 
-import researchImg1 from "../assets/Research_img1.webp";
-import researchImg2 from "../assets/Research_img2.webp";
-import researchImg3 from "../assets/Research_img3.webp";
-import researchImg4 from "../assets/Research_img4.webp";
+import researchImg1 from "../../assets/Research_img1.webp";
+import researchImg2 from "../../assets/Research_img2.webp";
+import researchImg3 from "../../assets/Research_img3.webp";
+import researchImg4 from "../../assets/Research_img4.webp";
 
 const ResearchSection = () => {
   const researchData = [

@@ -1,12 +1,12 @@
 import React from "react";
-import Promo from "../pages/PromotionSection.jsx";
-import Hero from "../pages/HeroSection.jsx";
-import About from "../pages/AminoDetailsPage.jsx";
-import Benefits from "../pages/ResearchBenefits.jsx";
+import Promo from "./Home/PromotionSection.jsx";
+import Hero from "./Home/HeroSection.jsx";
+import About from "./Home/AminoDetailsPage.jsx";
+import Benefits from "./Home/ResearchBenefits.jsx";
 
-import TrustedSection from "../pages/TrustedSection.jsx";
-import ResearchSection from "../pages/ResearchSection.jsx";
-import PuritySection from "../pages/PuritySection.jsx";
+import TrustedSection from "./Home/TrustedSection.jsx";
+import ResearchSection from "./Home/ResearchSection.jsx";
+import PuritySection from "./Home/PuritySection.jsx";
 const HomePage = () => {
   return (
     <>
