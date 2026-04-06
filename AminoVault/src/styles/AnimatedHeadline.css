@@ -1,0 +1,75 @@
+:root {
+  --dynamic-text-color: #ff00cb; /* Pink */
+  --zigzag-stroke-color: #7a00a0; /* Purple */
+  --headline-font: "Michroma", sans-serif;
+  --animation-speed: 1500ms;
+}
+
+.headline-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: #fff;
+}
+
+.elementor-headline {
+  font-family: var(--headline-font);
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  line-height: 50px;
+  margin: 0;
+}
+
+.elementor-headline-dynamic-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.elementor-headline-dynamic-text {
+  color: var(--dynamic-text-color);
+  /* The specific shadow from your code */
+  text-shadow: -6px 9px 9px rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 10;
+}
+
+/* Zigzag SVG Styling */
+.elementor-headline-dynamic-wrapper svg {
+  position: absolute;
+  bottom: -15px; /* Adjusting position under the text */
+  left: 0;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  z-index: 1;
+}
+
+.elementor-headline-dynamic-wrapper path {
+  fill: none;
+  stroke: var(--zigzag-stroke-color);
+  stroke-width: 12px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  /* Drawing Animation logic */
+  stroke-dasharray: 1500;
+  stroke-dashoffset: 1500;
+  animation: elementor-headline-dash var(--animation-speed) forwards infinite;
+}
+
+.elementor-headline-plain-text {
+  color: #333;
+  margin-left: 12px;
+}
+
+/* The Drawing Keyframes */
+@keyframes elementor-headline-dash {
+  0% {
+    stroke-dashoffset: 1500;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
