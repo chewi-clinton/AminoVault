@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/TrustedSection.css";
+import "../../styles/TrustedSection.css";
 
 const TrustedSection = () => {
   const stats = [

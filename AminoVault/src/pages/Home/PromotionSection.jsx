@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/PromotionSection.css";
+import "../../styles/PromotionSection.css";
 
 const PromotionSection = () => {
   const newsText =

@@ -1,6 +1,6 @@
 import React from "react";
-import "../styles/PuritySection.css";
-import purityBg from "../assets/backgroud_home_img.webp";
+import "../../styles/PuritySection.css";
+import purityBg from "../../assets/backgroud_home_img.webp";
 
 const PuritySection = () => {
   return (
