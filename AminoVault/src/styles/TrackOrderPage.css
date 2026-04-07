@@ -1,27 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Michroma&family=DM+Sans:wght@400;500&display=swap");
 
+/* --- Your Hero Styles --- */
 .contact-hero-container {
   display: flex;
-  /* Shift content to the left side of the container */
   justify-content: flex-start;
   align-items: center;
-  /* Force the container to take the full width of the viewport */
   width: 100vw;
   min-height: 450px;
-  /* Ensure it ignores any parent padding */
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-
   background-image: url("../../src/assets/backgroud_home_img.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 0 10%; /* Adds a safe breathing space from the very edge */
+  padding: 0 10%;
   box-sizing: border-box;
 }
 
 .contact-hero-content {
-  /* Removed the 67% width to let it sit naturally on the left */
   max-width: 1320px;
   display: flex;
   flex-direction: column;
@@ -39,13 +35,11 @@
   text-transform: capitalize;
   line-height: 46px;
   letter-spacing: 1px;
-  word-spacing: 3px;
   color: #ffffff;
   text-shadow: -6px 9px 9px #000000;
 }
 
 .contact-hero-description {
-  /* Adjusted width for better readability on the left */
   width: 100%;
   max-width: 800px;
   margin: 0;
@@ -55,28 +49,86 @@
   line-height: 1.3em;
   color: #ffffff;
   text-shadow: -6px 9px 9px #000000;
-  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Injected Styles from your Snippet --- */
+.track-order-content-section {
+  --wp--preset--color--black: #000000;
+  --wp--preset--color--white: #ffffff;
+  --wp--preset--font-size--small: 13px;
+  --wc-primary: #720eec;
+  --wc-form-border-color: rgba(32, 7, 7, 0.8);
+  --wc-form-border-radius: 4px;
+  --wc-form-border-width: 1px;
+
+  font-family: "DM Sans", Sans-serif;
+  font-size: 16px;
+  line-height: 1.6em;
+  color: #333;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.woocommerce-form-track-order p {
+  margin-bottom: 1.6em;
+}
+
+.form-row {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row label {
+  display: block;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.input-text {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 12px;
+  border: var(--wc-form-border-width) solid var(--wc-form-border-color);
+  border-radius: var(--wc-form-border-radius);
+  font-size: 14px;
+}
+
+.button {
+  background-color: #e8e8e8;
+  color: #333;
+  border: none;
+  padding: 12px 30px;
+  font-family: "Michroma", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  width: 150px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .form-row-first,
+  .form-row-last {
+    width: 48%;
+    float: left;
+  }
+  .form-row-first {
+    margin-right: 4%;
+  }
+  .clear {
+    clear: both;
+  }
 }
 
 @media (max-width: 768px) {
   .contact-hero-container {
     padding: 0 5%;
-    /* Reset margins for mobile if using a standard layout */
     margin-left: 0;
     margin-right: 0;
     width: 100%;
-  }
-
-  .contact-hero-content {
-    width: 100%;
-  }
-
-  .contact-hero-title {
-    font-size: 28px;
-    line-height: 1.2;
-  }
-
-  .contact-hero-description {
-    font-size: 18px;
   }
 }
