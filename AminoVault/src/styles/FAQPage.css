@@ -2,26 +2,21 @@
 
 .contact-hero-container {
   display: flex;
-  /* Shift content to the left side of the container */
   justify-content: flex-start;
   align-items: center;
-  /* Force the container to take the full width of the viewport */
   width: 100vw;
   min-height: 450px;
-  /* Ensure it ignores any parent padding */
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-
   background-image: url("../../src/assets/backgroud_home_img.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 0 10%; /* Adds a safe breathing space from the very edge */
+  padding: 0 10%;
   box-sizing: border-box;
 }
 
 .contact-hero-content {
-  /* Removed the 67% width to let it sit naturally on the left */
   max-width: 1320px;
   display: flex;
   flex-direction: column;
@@ -45,7 +40,6 @@
 }
 
 .contact-hero-description {
-  /* Adjusted width for better readability on the left */
   width: 100%;
   max-width: 800px;
   margin: 0;
@@ -58,25 +52,82 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.faq-accordion-section {
+  padding: 80px 0;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+}
+
+.faq-accordion-container {
+  width: 100%;
+  max-width: 1140px;
+  padding: 0 20px;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+  border: 1px solid #dedede;
+}
+
+.faq-title {
+  background-color: #ff20c6e0;
+  color: #000000; /* Black text for title */
+  padding: 20px 30px;
+  font-family: "Michroma", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.faq-icon {
+  margin-right: 15px;
+  font-size: 20px;
+  font-family: "DM Sans", sans-serif;
+  color: #000000; /* Black for + - icons */
+}
+
+.faq-content {
+  max-height: 0;
+  overflow: hidden;
+  transition:
+    max-height 0.4s ease,
+    padding 0.3s ease;
+  background-color: #ffffff;
+}
+
+.faq-content.show {
+  max-height: 500px;
+  padding: 25px 30px;
+}
+
+.faq-content p {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333333;
+}
+
 @media (max-width: 768px) {
   .contact-hero-container {
     padding: 0 5%;
-    /* Reset margins for mobile if using a standard layout */
     margin-left: 0;
     margin-right: 0;
     width: 100%;
   }
-
-  .contact-hero-content {
-    width: 100%;
-  }
-
   .contact-hero-title {
     font-size: 28px;
     line-height: 1.2;
   }
-
   .contact-hero-description {
     font-size: 18px;
+  }
+  .faq-title {
+    font-size: 14px;
+    padding: 15px 20px;
   }
 }
