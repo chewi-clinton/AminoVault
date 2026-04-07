@@ -1,82 +1,191 @@
-@import url("https://fonts.googleapis.com/css2?family=Michroma&family=DM+Sans:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Michroma&family=DM+Sans:wght@400;500&family=Space+Mono:wght@500&display=swap");
 
+.contact-page-wrapper {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* --- Hero Section Styles --- */
 .contact-hero-container {
   display: flex;
-  /* Shift content to the left side of the container */
   justify-content: flex-start;
   align-items: center;
-  /* Force the container to take the full width of the viewport */
   width: 100vw;
   min-height: 450px;
-  /* Ensure it ignores any parent padding */
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-
   background-image: url("../../src/assets/backgroud_home_img.webp");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  padding: 0 10%; /* Adds a safe breathing space from the very edge */
+  padding: 0 10%;
   box-sizing: border-box;
 }
 
-.contact-hero-content {
-  /* Removed the 67% width to let it sit naturally on the left */
-  max-width: 1320px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: left;
-}
-
 .contact-hero-title {
-  margin-block-start: 0.5rem;
-  margin-block-end: 1rem;
   font-family: "Michroma", sans-serif;
   font-size: 38px;
   font-weight: 700;
-  text-transform: capitalize;
-  line-height: 46px;
-  letter-spacing: 1px;
-  word-spacing: 3px;
   color: #ffffff;
   text-shadow: -6px 9px 9px #000000;
+  margin-bottom: 1rem;
 }
 
 .contact-hero-description {
-  /* Adjusted width for better readability on the left */
-  width: 100%;
   max-width: 800px;
-  margin: 0;
   font-family: "DM Sans", sans-serif;
   font-size: 20px;
-  font-weight: 500;
-  line-height: 1.3em;
   color: #ffffff;
   text-shadow: -6px 9px 9px #000000;
-  -webkit-font-smoothing: antialiased;
+  line-height: 1.3em;
 }
 
+/* --- Form Section Styles --- */
+.contact-form-section {
+  padding: 60px 20px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-header {
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 40px;
+}
+
+.form-main-title {
+  font-family: "Michroma", sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 40px;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.form-subtitle {
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+  color: #333333;
+  line-height: 1.6em;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 1100px; /* Aligned with your --container-max-width */
+  background-color: #f7f8f9; /* Based on --e-global-color-605a87f9 */
+  padding: 40px;
+}
+
+.required-fields {
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.required-fields span,
+.form-group label span {
+  color: #cf2e2e;
+}
+
+.form-group label {
+  display: block;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.form-row {
+  margin-bottom: 25px;
+}
+
+.form-row.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.name-inputs {
+  display: flex;
+  gap: 20px;
+}
+
+.sub-group {
+  flex: 1;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dedede;
+  background: #fff;
+  font-family: "DM Sans", sans-serif;
+  box-sizing: border-box;
+}
+
+small {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #7a7a7a;
+}
+
+.form-checkbox {
+  display: flex;
+  gap: 15px;
+  margin: 30px 0;
+  align-items: flex-start;
+}
+
+.form-checkbox label {
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.submit-button {
+  font-family: "Space Mono", sans-serif;
+  background-color: #e91831; /* Based on --e-global-color-b17ec5a */
+  color: #fff;
+  padding: 14px 45px;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.3s;
+  display: block;
+  margin-left: auto; /* Aligns button to the right as per Elementor flex-end */
+}
+
+.submit-button:hover {
+  opacity: 0.9;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
-  .contact-hero-container {
-    padding: 0 5%;
-    /* Reset margins for mobile if using a standard layout */
-    margin-left: 0;
-    margin-right: 0;
+  .form-row.split {
+    grid-template-columns: 1fr;
+  }
+
+  .name-inputs {
+    flex-direction: column;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+
+  .form-main-title {
+    font-size: 26px;
+  }
+
+  .submit-button {
     width: 100%;
-  }
-
-  .contact-hero-content {
-    width: 100%;
-  }
-
-  .contact-hero-title {
-    font-size: 28px;
-    line-height: 1.2;
-  }
-
-  .contact-hero-description {
-    font-size: 18px;
   }
 }
