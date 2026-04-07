@@ -1,20 +1,17 @@
 import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import "../styles/Header.css";
 import logo from "../assets/Amino_logo.webp";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("/");
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  const handleLinkClick = (path) => {
-    setActiveLink(path);
-    setIsMenuOpen(false);
-  };
+  const closeMenu = () => setIsMenuOpen(false);
 
   return (
     <header>
+      {/* Top Announcement Bar */}
       <div className="top-announcement">
         <div className="announcement-item">
           <img
@@ -34,77 +31,87 @@ const Header = () => {
 
       <div className="main-header">
         <div className="logo-container">
-          <img src={logo} alt="AminoVault" />
+          <Link to="/">
+            <img src={logo} alt="AminoVault" />
+          </Link>
         </div>
 
         <nav className="nav-menu">
-          <a
-            href="/"
-            className={activeLink === "/" ? "active" : ""}
-            onClick={() => handleLinkClick("/")}
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={closeMenu}
           >
             Home
-          </a>
-          <a
-            href="/about"
-            className={activeLink === "/about" ? "active" : ""}
-            onClick={() => handleLinkClick("/about")}
+          </NavLink>
+
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={closeMenu}
           >
             About Us
-          </a>
+          </NavLink>
 
+          {/* ==================== SHOP DROPDOWN ==================== */}
           <div className="nav-item">
-            <span
-              className={`dropdown-toggle ${activeLink.startsWith("/shop") ? "active" : ""}`}
-            >
-              Shop
-            </span>
+            <span className="dropdown-toggle">Shop</span>
             <div className="dropdown-menu">
-              <a href="/shop">Shop All Peptides</a>
-              <a href="/shop/cellular">Cellular Structure & Matrix Research</a>
-              <a href="/shop/neurological">
+              <Link to="/shop" onClick={closeMenu}>
+                Shop All Peptides
+              </Link>
+              <Link to="/shop/cellular" onClick={closeMenu}>
+                Cellular Structure & Matrix Research
+              </Link>
+              <Link to="/shop/neurological" onClick={closeMenu}>
                 Neurological Signaling & Cognitive Research
-              </a>
-              <a href="/shop/immune">
+              </Link>
+              <Link to="/shop/immune" onClick={closeMenu}>
                 Immune Modulation & Regenerative Processes
-              </a>
-              <a href="/shop/musculoskeletal">
+              </Link>
+              <Link to="/shop/musculoskeletal" onClick={closeMenu}>
                 Musculoskeletal Function & Protein Synthesis Research
-              </a>
-              <a href="/shop/metabolic">
+              </Link>
+              <Link to="/shop/metabolic" onClick={closeMenu}>
                 Metabolic Regulation & Energy Pathway Research
-              </a>
+              </Link>
             </div>
           </div>
 
+          {/* ==================== RESOURCES DROPDOWN ==================== */}
           <div className="nav-item">
-            <span
-              className={`dropdown-toggle ${activeLink.startsWith("/resources") ? "active" : ""}`}
-            >
-              Resources
-            </span>
+            <span className="dropdown-toggle">Resources</span>
             <div className="dropdown-menu">
-              <a href="/resources/faqs">FAQs</a>
-              <a href="/resources/lab-results">Lab Results</a>
-              <a href="/resources/blog">Blog</a>
-              <a href="/resources/order-tracking">Order Tracking</a>
+              <Link to="/faqs" onClick={closeMenu}>
+                FAQs
+              </Link>
+              <Link to="/lab-results" onClick={closeMenu}>
+                Lab Results
+              </Link>
+              <Link to="/blog" onClick={closeMenu}>
+                Blog
+              </Link>
+              <Link to="/track-order" onClick={closeMenu}>
+                Order Tracking
+              </Link>
             </div>
           </div>
 
-          <a
-            href="/wholesale"
-            className={activeLink === "/wholesale" ? "active" : ""}
-            onClick={() => handleLinkClick("/wholesale")}
+          <NavLink
+            to="/wholesale"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={closeMenu}
           >
             Wholesale
-          </a>
-          <a
-            href="/contact"
-            className={activeLink === "/contact" ? "active" : ""}
-            onClick={() => handleLinkClick("/contact")}
+          </NavLink>
+
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => (isActive ? "active" : "")}
+            onClick={closeMenu}
           >
             Contact Us
-          </a>
+          </NavLink>
         </nav>
 
         <div className="hamburger" onClick={toggleMenu}>
@@ -130,7 +137,8 @@ const Header = () => {
             </svg>
             <span className="badge">0</span>
           </div>
-          <div className="user-wrapper">
+
+          <Link to="/my-account" className="user-wrapper" onClick={closeMenu}>
             <svg
               className="user-icon"
               viewBox="0 0 24 24"
@@ -143,29 +151,39 @@ const Header = () => {
               <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
-          </div>
+          </Link>
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <div className={`mobile-menu ${isMenuOpen ? "active" : ""}`}>
-        <a href="/" onClick={() => handleLinkClick("/")}>
+        <Link to="/" onClick={closeMenu}>
           Home
-        </a>
-        <a href="/about" onClick={() => handleLinkClick("/about")}>
+        </Link>
+        <Link to="/about" onClick={closeMenu}>
           About Us
-        </a>
-        <a href="/shop" onClick={() => handleLinkClick("/shop")}>
-          Shop
-        </a>
-        <a href="/resources" onClick={() => handleLinkClick("/resources")}>
-          Resources
-        </a>
-        <a href="/wholesale" onClick={() => handleLinkClick("/wholesale")}>
+        </Link>
+        <Link to="/shop" onClick={closeMenu}>
+          Shop All Peptides
+        </Link>
+        <Link to="/faqs" onClick={closeMenu}>
+          FAQs
+        </Link>
+        <Link to="/lab-results" onClick={closeMenu}>
+          Lab Results
+        </Link>
+        <Link to="/track-order" onClick={closeMenu}>
+          Order Tracking
+        </Link>
+        <Link to="/wholesale" onClick={closeMenu}>
           Wholesale
-        </a>
-        <a href="/contact" onClick={() => handleLinkClick("/contact")}>
+        </Link>
+        <Link to="/contact" onClick={closeMenu}>
           Contact Us
-        </a>
+        </Link>
+        <Link to="/my-account" onClick={closeMenu}>
+          My Account
+        </Link>
       </div>
     </header>
   );

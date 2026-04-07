@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/Footer.css";
 
-// Importing images as modules so the build tool processes them
+// Importing images as modules
 import footerLogo from "../assets/Footer_logo.webp";
 import wreathGraphic from "../assets/About_img1.webp";
 import paymentIcons from "../assets/Master.png";
@@ -26,36 +27,35 @@ const Footer = () => {
           <h4>Quick Links</h4>
           <ul>
             <li>
-              <a href="/shop">Shop Page</a>
+              <Link to="/shop">Shop</Link>
             </li>
             <li>
-              <a href="/account">My Account</a>
+              <Link to="/my-account">My Account</Link>
             </li>
             <li>
-              <a href="/blog">Blog Page</a>
+              <Link to="/contact">Contact Us</Link>
             </li>
             <li>
-              <a href="/contact">Contact Us</a>
+              <Link to="/faqs">FAQs</Link>
             </li>
             <li>
-              <a href="/faqs">FAQs</a>
+              <Link to="/about">About AminoVault LLC</Link>
             </li>
             <li>
-              <a href="/about">
-                About <span className="highlight">AminoVault LLC</span>
-              </a>
+              <Link to="/privacy-policy">Privacy Policy</Link>
             </li>
             <li>
-              <a href="/privacy">Privacy Policy</a>
+              <Link to="/terms-of-service">Terms of Service</Link>
             </li>
             <li>
-              <a href="/terms">Terms of Service</a>
+              <Link to="/shipping-and-returns">Shipping & Returns Policy</Link>
+            </li>
+            {/* Blog and Affiliate - add these routes later when pages are ready */}
+            <li>
+              <Link to="/blog">Blog</Link>
             </li>
             <li>
-              <a href="/shipping">Shipping & Returns Policy</a>
-            </li>
-            <li>
-              <a href="/affiliate">Affiliate Registration</a>
+              <Link to="/affiliate">Affiliate Registration</Link>
             </li>
           </ul>
         </div>
@@ -72,7 +72,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Far Right: Seen On Wreath Placeholder */}
+        {/* Far Right: Seen On Wreath */}
         <div className="footer-wreath-col">
           <img
             src={wreathGraphic}
@@ -110,13 +110,13 @@ const Footer = () => {
         </div>
 
         <div className="bottom-right social-links">
-          <a href="#">
+          <a href="#" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-instagram"></i> Instagram
           </a>
-          <a href="#">
+          <a href="#" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-tiktok"></i> TikTok
           </a>
-          <a href="#">
+          <a href="#" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-facebook"></i> Facebook
           </a>
         </div>

@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Michroma&family=DM+Sans:wght@400;500&display=swap");
+
+.contact-hero-container {
+  display: flex;
+  /* Shift content to the left side of the container */
+  justify-content: flex-start;
+  align-items: center;
+  /* Force the container to take the full width of the viewport */
+  width: 100vw;
+  min-height: 450px;
+  /* Ensure it ignores any parent padding */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  background-image: url("../../src/assets/backgroud_home_img.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 0 10%; /* Adds a safe breathing space from the very edge */
+  box-sizing: border-box;
+}
+
+.contact-hero-content {
+  /* Removed the 67% width to let it sit naturally on the left */
+  max-width: 1320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.contact-hero-title {
+  margin-block-start: 0.5rem;
+  margin-block-end: 1rem;
+  font-family: "Michroma", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  text-transform: capitalize;
+  line-height: 46px;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  color: #ffffff;
+  text-shadow: -6px 9px 9px #000000;
+}
+
+.contact-hero-description {
+  /* Adjusted width for better readability on the left */
+  width: 100%;
+  max-width: 800px;
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3em;
+  color: #ffffff;
+  text-shadow: -6px 9px 9px #000000;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (max-width: 768px) {
+  .contact-hero-container {
+    padding: 0 5%;
+    /* Reset margins for mobile if using a standard layout */
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .contact-hero-content {
+    width: 100%;
+  }
+
+  .contact-hero-title {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .contact-hero-description {
+    font-size: 18px;
+  }
+}
