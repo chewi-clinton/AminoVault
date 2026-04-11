@@ -1,27 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Michroma&family=DM+Sans:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Michroma&family=DM+Sans:wght@400;500&family=Mulish:wght@400;600&family=Oswald:wght@400;500&display=swap");
 
 .contact-hero-container {
   display: flex;
-  /* Shift content to the left side of the container */
   justify-content: flex-start;
   align-items: center;
-  /* Force the container to take the full width of the viewport */
   width: 100vw;
   min-height: 450px;
-  /* Ensure it ignores any parent padding */
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-
   background-image: url("../../src/assets/backgroud_home_img.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 0 10%; /* Adds a safe breathing space from the very edge */
+  padding: 10px !important;
   box-sizing: border-box;
 }
 
 .contact-hero-content {
-  /* Removed the 67% width to let it sit naturally on the left */
   max-width: 1320px;
   display: flex;
   flex-direction: column;
@@ -45,7 +40,6 @@
 }
 
 .contact-hero-description {
-  /* Adjusted width for better readability on the left */
   width: 100%;
   max-width: 800px;
   margin: 0;
@@ -58,25 +52,215 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.wholesale-why-section {
+  background: #ffffff;
+  box-sizing: border-box;
+  padding: 10px !important;
+}
+
+.wholesale-why-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 10px !important;
+}
+
+.wholesale-main-title {
+  font-family: "Michroma", Sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.1em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.wholesale-content-row {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.wholesale-why-text {
+  flex: 1;
+}
+
+.wholesale-feature {
+  margin-bottom: 20px;
+}
+
+.wholesale-feature-title {
+  font-family: "Michroma", Sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.wholesale-feature-desc {
+  font-family: "DM Sans", Sans-serif;
+  font-size: 16px;
+  line-height: 1.65em;
+  color: #333;
+}
+
+.wholesale-why-image {
+  flex: 1;
+  max-width: 580px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.wholesale-side-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.inquiry-section {
+  padding: 10px !important;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.inquiry-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 10px !important;
+}
+
+.inquiry-title {
+  font-family: "Michroma", Sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.inquiry-description {
+  max-width: 1000px;
+  margin-bottom: 20px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.65em;
+  color: #333;
+}
+
+.inquiry-form {
+  margin-bottom: 30px;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+}
+
+.form-row {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 20px !important;
+  margin-bottom: 25px !important;
+  width: 100% !important;
+}
+
+.form-group {
+  flex: 1 !important;
+}
+
+.form-group label {
+  display: block;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.sub-label {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-top: 5px;
+  font-family: "DM Sans", sans-serif;
+}
+
+.required {
+  color: #cf2e2e;
+}
+
+input,
+textarea {
+  width: 100% !important;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+textarea {
+  min-height: 350px !important;
+}
+
+.char-count {
+  font-size: 14px;
+  color: #888;
+  margin-top: 10px;
+}
+
+.submit-button {
+  background-color: #84c440 !important;
+  color: #fff !important;
+  font-family: "Space Mono", sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  padding: 14px 28px !important;
+  border: none !important;
+  border-radius: 0 !important;
+  cursor: pointer;
+  margin: 10px 0 0 0 !important;
+  align-self: flex-start !important;
+}
+
+/* Specific Style Request for the Disclaimer Title */
+.disclaimer-title {
+  -webkit-text-size-adjust: 100%;
+  --wp--preset--color--vivid-red: #cf2e2e;
+  --wp--preset--font-size--medium: 20px;
+  --wp--preset--font-size--large: 36px;
+  --wp--preset--spacing--20: 0.44rem;
+  --wp--style--block-gap: 24px;
+  -webkit-font-smoothing: antialiased;
+  --container-max-width: 1320px;
+  margin-block-end: 1rem;
+  margin-block-start: 0.5rem;
+  box-sizing: border-box;
+  color: #333;
+  font-family: "Michroma", Sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: capitalize;
+  line-height: 1.2em;
+}
+
+.disclaimer-text {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.disclaimer-text p {
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.7em;
+  color: #444;
+  margin-bottom: 16px;
+}
+
 @media (max-width: 768px) {
-  .contact-hero-container {
-    padding: 0 5%;
-    /* Reset margins for mobile if using a standard layout */
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-  }
-
-  .contact-hero-content {
-    width: 100%;
-  }
-
-  .contact-hero-title {
-    font-size: 28px;
-    line-height: 1.2;
-  }
-
-  .contact-hero-description {
-    font-size: 18px;
+  .form-row {
+    flex-direction: column !important;
   }
 }
