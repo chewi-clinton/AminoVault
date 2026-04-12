@@ -1,4 +1,5 @@
 import React from "react";
+import { useCart } from "../../context/CartContext";
 import "../../styles/ProductPart.css";
 
 const products = [
@@ -39,7 +40,7 @@ const products = [
     sku: "19-1221-10",
     name: "Glucagon-Like Peptide-1 (7-36) 10mg",
     oldPrice: "93.00",
-    price: "93.00",
+    price: "79.05",
     img: "https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_webp,s_webp/aminovault.com/wp-content/uploads/2025/07/ShadowGLP-1.webp",
   },
   {
@@ -47,7 +48,7 @@ const products = [
     sku: "20-1896-10",
     name: "GLP-2 (T) 10mg",
     oldPrice: "98.00",
-    price: "98.00",
+    price: "83.30",
     img: "https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_webp,s_webp/aminovault.com/wp-content/uploads/2025/07/ShadowGLP-2.webp",
   },
   {
@@ -111,7 +112,7 @@ const products = [
     sku: "14-1197-50",
     name: "NAD+ 1000mg",
     oldPrice: "207.00",
-    price: "207.00",
+    price: "175.95",
     img: "https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_webp,s_webp/aminovault.com/wp-content/uploads/2025/07/NAD1000MGnew1.webp",
   },
   {
@@ -197,6 +198,8 @@ const products = [
 ];
 
 const ProductPart = () => {
+  const { addToCart } = useCart();
+
   return (
     <section className="product-part-section">
       <h2 className="collection-heading">Our Peptide Collection</h2>
@@ -213,11 +216,13 @@ const ProductPart = () => {
                 <a href={`/product/${product.id}`}>{product.name}</a>
               </h5>
 
-              {/* NEW FLEX ROW FOR PRICE AND BUTTON */}
               <div className="card-footer-row">
                 <div className="pricing-container">
                   <div className="price">
-                    <del>${product.oldPrice}</del>
+                    {parseFloat(product.oldPrice) >
+                      parseFloat(product.price) && (
+                      <del>${product.oldPrice}</del>
+                    )}
                     <ins>${product.price}</ins>
                   </div>
                 </div>
@@ -225,8 +230,7 @@ const ProductPart = () => {
                 <div className="cart-form-container">
                   <button
                     className="add-to-cart-button"
-                    data-product_id={product.id}
-                    data-product_sku={product.sku}
+                    onClick={() => addToCart(product)}
                   >
                     Add To Cart
                   </button>
