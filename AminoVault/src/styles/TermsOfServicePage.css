@@ -2,26 +2,21 @@
 
 .contact-hero-container {
   display: flex;
-  /* Shift content to the left side of the container */
   justify-content: flex-start;
   align-items: center;
-  /* Force the container to take the full width of the viewport */
   width: 100vw;
   min-height: 450px;
-  /* Ensure it ignores any parent padding */
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-
   background-image: url("../../src/assets/backgroud_home_img.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 0 10%; /* Adds a safe breathing space from the very edge */
+  padding: 0 10%;
   box-sizing: border-box;
 }
 
 .contact-hero-content {
-  /* Removed the 67% width to let it sit naturally on the left */
   max-width: 1320px;
   display: flex;
   flex-direction: column;
@@ -45,7 +40,6 @@
 }
 
 .contact-hero-description {
-  /* Adjusted width for better readability on the left */
   width: 100%;
   max-width: 800px;
   margin: 0;
@@ -58,25 +52,72 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/* ============== TERMS OF SERVICE CONTENT STYLING ============== */
+.terms-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.6;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.terms-container h1,
+.terms-container h2 {
+  font-family: "Michroma", sans-serif;
+  color: #000000;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-top: 2.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.terms-container h1 {
+  font-size: 32px;
+  margin-top: 0;
+}
+
+.terms-container h2 {
+  font-size: 24px;
+}
+
+.terms-container p {
+  color: #000000;
+  margin-bottom: 1.2rem;
+}
+
+.terms-container strong {
+  color: #000000;
+}
+
+.terms-last-updated {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.terms-container a {
+  color: #036dbd;
+  text-decoration: underline;
+}
+
+.terms-container a:hover {
+  color: #024a82;
+}
+
 @media (max-width: 768px) {
-  .contact-hero-container {
-    padding: 0 5%;
-    /* Reset margins for mobile if using a standard layout */
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
+  .terms-container {
+    padding: 40px 20px;
   }
 
-  .contact-hero-content {
-    width: 100%;
-  }
-
-  .contact-hero-title {
+  .terms-container h1 {
     font-size: 28px;
-    line-height: 1.2;
   }
 
-  .contact-hero-description {
-    font-size: 18px;
+  .terms-container h2 {
+    font-size: 22px;
   }
 }
