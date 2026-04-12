@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
 
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 
-// Import all pages
+// Import pages
 import HomePage from "./pages/HomePage.jsx";
 import Shoppage from "./pages/Shoppage.jsx";
 import ContactPage from "./pages/ContactPage.jsx";
@@ -21,37 +22,30 @@ import WholeSalePage from "./pages/WholeSalePage.jsx";
 function App() {
   return (
     <Router>
-      <Header />
+      <CartProvider>
+        <Header />
 
-      <Routes>
-        {/* Main Pages */}
-        <Route path="/" element={<HomePage />} />
-        <Route path="/shop" element={<Shoppage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/faqs" element={<FAQsPage />} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/shop" element={<Shoppage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/faqs" element={<FAQsPage />} />
+          <Route path="/product-category" element={<ProductCategoryPage />} />
+          <Route path="/wholesale" element={<WholeSalePage />} />
+          <Route path="/my-account" element={<MyAccountPage />} />
+          <Route path="/track-order" element={<TrackOrderPage />} />
+          <Route path="/lab-results" element={<LabResultPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+          <Route
+            path="/shipping-and-returns"
+            element={<ShippingAndReturnPolicyPage />}
+          />
+        </Routes>
 
-        {/* Shop Related */}
-        <Route path="/product-category" element={<ProductCategoryPage />} />
-        <Route path="/wholesale" element={<WholeSalePage />} />
-
-        {/* Account & Orders */}
-        <Route path="/my-account" element={<MyAccountPage />} />
-        <Route path="/track-order" element={<TrackOrderPage />} />
-        <Route path="/lab-results" element={<LabResultPage />} />
-
-        {/* Legal Pages */}
-        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-        <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-        <Route
-          path="/shipping-and-returns"
-          element={<ShippingAndReturnPolicyPage />}
-        />
-
-        {/* You can add more specific routes later (e.g. /shop/:category, /product/:id, etc.) */}
-      </Routes>
-
-      <Footer />
+        <Footer />
+      </CartProvider>
     </Router>
   );
 }

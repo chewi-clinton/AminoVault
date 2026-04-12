@@ -2,12 +2,21 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../styles/Header.css";
 import logo from "../assets/Amino_logo.webp";
+import Cart from "../pages/Cart";
+import { useCart } from "../context/CartContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  // Get cart data from Context
+  const { cartItems, cartCount, updateQuantity, removeItem } = useCart();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
+
+  const openCart = () => setIsCartOpen(true);
+  const closeCart = () => setIsCartOpen(false);
 
   return (
     <header>
@@ -53,7 +62,7 @@ const Header = () => {
             About Us
           </NavLink>
 
-          {/* ==================== SHOP DROPDOWN ==================== */}
+          {/* Shop Dropdown */}
           <div className="nav-item">
             <span className="dropdown-toggle">Shop</span>
             <div className="dropdown-menu">
@@ -78,7 +87,7 @@ const Header = () => {
             </div>
           </div>
 
-          {/* ==================== RESOURCES DROPDOWN ==================== */}
+          {/* Resources Dropdown */}
           <div className="nav-item">
             <span className="dropdown-toggle">Resources</span>
             <div className="dropdown-menu">
@@ -121,7 +130,11 @@ const Header = () => {
         </div>
 
         <div className="header-actions">
-          <div className="cart-wrapper">
+          <div
+            className="cart-wrapper"
+            onClick={openCart}
+            style={{ cursor: "pointer" }}
+          >
             <svg
               className="cart-icon"
               viewBox="0 0 24 24"
@@ -135,7 +148,7 @@ const Header = () => {
               <circle cx="20" cy="21" r="1"></circle>
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
             </svg>
-            <span className="badge">0</span>
+            {cartCount > 0 && <span className="badge">{cartCount}</span>}
           </div>
 
           <Link to="/my-account" className="user-wrapper" onClick={closeMenu}>
@@ -185,6 +198,15 @@ const Header = () => {
           My Account
         </Link>
       </div>
+
+      {/* Cart Component */}
+      <Cart
+        isOpen={isCartOpen}
+        onClose={closeCart}
+        cartItems={cartItems}
+        onUpdateQuantity={updateQuantity}
+        onRemoveItem={removeItem}
+      />
     </header>
   );
 };
