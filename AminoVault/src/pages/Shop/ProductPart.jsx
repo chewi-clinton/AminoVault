@@ -152,7 +152,7 @@ const products = [
     sku: "12-1194-72",
     name: "KPV 10mg",
     oldPrice: "87.00",
-    price: "87.00",
+    price: "69.60",
     img: "https://spcdn.shortpixel.ai/spio/ret_img,q_cdnize,to_webp,s_webp/aminovault.com/wp-content/uploads/2025/07/kpv10mgav.webp",
   },
   {
@@ -219,10 +219,8 @@ const ProductPart = () => {
               <div className="card-footer-row">
                 <div className="pricing-container">
                   <div className="price">
-                    {parseFloat(product.oldPrice) >
-                      parseFloat(product.price) && (
-                      <del>${product.oldPrice}</del>
-                    )}
+                    {/* Always show old price if it exists */}
+                    {product.oldPrice && <del>${product.oldPrice}</del>}
                     <ins>${product.price}</ins>
                   </div>
                 </div>
