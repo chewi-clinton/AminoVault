@@ -2,26 +2,21 @@
 
 .contact-hero-container {
   display: flex;
-  /* Shift content to the left side of the container */
   justify-content: flex-start;
   align-items: center;
-  /* Force the container to take the full width of the viewport */
   width: 100vw;
   min-height: 450px;
-  /* Ensure it ignores any parent padding */
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-
   background-image: url("../../src/assets/backgroud_home_img.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 0 10%; /* Adds a safe breathing space from the very edge */
+  padding: 0 10%;
   box-sizing: border-box;
 }
 
 .contact-hero-content {
-  /* Removed the 67% width to let it sit naturally on the left */
   max-width: 1320px;
   display: flex;
   flex-direction: column;
@@ -45,7 +40,6 @@
 }
 
 .contact-hero-description {
-  /* Adjusted width for better readability on the left */
   width: 100%;
   max-width: 800px;
   margin: 0;
@@ -58,25 +52,168 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/* ============== LOGIN & REGISTER FORM STYLING ============== */
+.account-container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 60px 40px 100px;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "DM Sans", sans-serif;
+}
+
+.account-forms {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.form-box {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 40px 35px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.form-box h2 {
+  font-family: "Michroma", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #000000;
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #000000;
+  font-size: 15px;
+}
+
+.form-group label .required {
+  color: #e74c3c;
+}
+
+.input-field {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #036dbd;
+  box-shadow: 0 0 0 3px rgba(3, 109, 189, 0.1);
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper .input-field {
+  padding-right: 50px;
+}
+.toggle-password {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.toggle-password:hover {
+  color: #036dbd;
+}
+.login-options {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0 30px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: #333;
+}
+
+.forgot-password {
+  color: #9b59b6;
+  text-decoration: none;
+  font-size: 15px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.submit-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #c0392b;
+}
+
+.register-notice {
+  font-size: 14px;
+  color: #555;
+  margin-top: 25px;
+  line-height: 1.5;
+}
+
+.register-notice a {
+  color: #9b59b6;
+  text-decoration: underline;
+}
+
+.register-notice a:hover {
+  color: #8e44ad;
+}
+
+@media (max-width: 992px) {
+  .account-forms {
+    gap: 40px;
+  }
+}
+
 @media (max-width: 768px) {
-  .contact-hero-container {
-    padding: 0 5%;
-    /* Reset margins for mobile if using a standard layout */
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-  }
-
-  .contact-hero-content {
-    width: 100%;
-  }
-
-  .contact-hero-title {
-    font-size: 28px;
-    line-height: 1.2;
-  }
-
-  .contact-hero-description {
-    font-size: 18px;
+  .account-container {
+    padding: 40px 20px 80px;
   }
 }
