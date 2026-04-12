@@ -127,7 +127,7 @@ const PrivacyPolicyPage = () => {
         <p>
           <strong>Email Address:</strong>{" "}
           <a style={{ color: "#ca33d2" }} href="mailto:info@amino-vault.com">
-            info@aminovault.com
+            info@amino-vault.com
           </a>
         </p>
       </div>
