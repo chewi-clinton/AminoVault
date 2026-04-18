@@ -1,0 +1,22 @@
+# Python / Backend
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/*.sqlite3
+backend/media/
+backend/staticfiles/
+
+# Environment files — never commit real credentials
+backend/.env
+AminoVault/.env
+
+# Node / Frontend
+AminoVault/node_modules/
+AminoVault/dist/
+AminoVault/.DS_Store
+
+# OS
+.DS_Store
+Thumbs.db
