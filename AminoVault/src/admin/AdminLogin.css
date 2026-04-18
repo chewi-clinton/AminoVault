@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap");
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+.av-login-page {
+  min-height: 100vh;
+  background: #0f0f13;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: "DM Sans", sans-serif;
+}
+
+.av-login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #17171d;
+  border: 1px solid #2a2a35;
+  border-radius: 16px;
+  padding: 40px 36px;
+}
+
+.av-login-brand {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.av-login-logo-img {
+  width: 180px;
+  height: auto;
+  margin: 0 auto 16px;
+  display: block;
+  object-fit: contain;
+}
+
+.av-login-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.av-login-subtitle {
+  font-size: 14px;
+  color: #6b6b7e;
+}
+
+.av-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.av-login-error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.av-login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.av-login-field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #9a9aaa;
+}
+
+.av-login-field input {
+  background: #0f0f13;
+  border: 1px solid #2a2a35;
+  border-radius: 8px;
+  padding: 11px 14px;
+  font-size: 14px;
+  color: #e2e2e2;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.15s;
+  font-family: inherit;
+}
+
+.av-login-field input::placeholder { color: #3e3e50; }
+
+.av-login-field input:focus {
+  border-color: #ca33d2;
+}
+
+.av-login-pw-wrap {
+  position: relative;
+}
+
+.av-login-pw-wrap input {
+  padding-right: 44px;
+}
+
+.av-login-eye {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #6b6b7e;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  transition: color 0.15s;
+}
+
+.av-login-eye:hover { color: #ca33d2; }
+
+.av-login-btn {
+  padding: 12px;
+  background: linear-gradient(135deg, #ca33d2, #9b1ea3);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  font-family: inherit;
+  margin-top: 4px;
+}
+
+.av-login-btn:hover:not(:disabled) { opacity: 0.88; }
+.av-login-btn:disabled { opacity: 0.55; cursor: not-allowed; }
