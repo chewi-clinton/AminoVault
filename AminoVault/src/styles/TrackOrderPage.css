@@ -132,3 +132,84 @@
     width: 100%;
   }
 }
+
+/* ── Order result ─────────────────────────────────────────────────────────── */
+.track-order-result {
+  margin-top: 32px;
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 28px;
+  font-family: "DM Sans", sans-serif;
+}
+
+.track-order-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.track-order-number {
+  font-family: "Michroma", sans-serif;
+  font-size: 18px;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.track-order-date { font-size: 13px; color: #777; }
+
+.track-order-status {
+  padding: 5px 14px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.track-order-tracking {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.track-order-items h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.track-item-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #444;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.track-order-totals { margin-top: 16px; }
+
+.track-total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #555;
+  padding: 6px 0;
+}
+
+.track-grand-total {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  border-top: 2px solid #e5e5e5;
+  margin-top: 6px;
+  padding-top: 10px;
+}
