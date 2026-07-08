@@ -95,28 +95,29 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'users.User'
 
-# ─── Cloudflare R2 Media Storage ─────────────────────────────────────────────
-R2_ACCESS_KEY_ID = os.environ.get('R2_ACCESS_KEY_ID', '')
-R2_SECRET_ACCESS_KEY = os.environ.get('R2_SECRET_ACCESS_KEY', '')
-R2_BUCKET_NAME = os.environ.get('R2_BUCKET_NAME', 'aminovault-media')
-R2_ACCOUNT_ID = os.environ.get('R2_ACCOUNT_ID', '')
-R2_CUSTOM_DOMAIN = os.environ.get('R2_CUSTOM_DOMAIN', '')
+# ─── S3-compatible media storage (MinIO, R2, or AWS S3) ──────────────────────
+S3_ACCESS_KEY_ID = os.environ.get('S3_ACCESS_KEY_ID', '')
+S3_SECRET_ACCESS_KEY = os.environ.get('S3_SECRET_ACCESS_KEY', '')
+S3_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME', 'aminovault')
+S3_ENDPOINT_URL = os.environ.get('S3_ENDPOINT_URL', '')
+S3_CUSTOM_DOMAIN = os.environ.get('S3_CUSTOM_DOMAIN', '')
 
-if R2_ACCESS_KEY_ID and R2_SECRET_ACCESS_KEY and R2_ACCOUNT_ID:
-    DEFAULT_FILE_STORAGE = 'aminovault.storage_backends.R2MediaStorage'
-    AWS_ACCESS_KEY_ID = R2_ACCESS_KEY_ID
-    AWS_SECRET_ACCESS_KEY = R2_SECRET_ACCESS_KEY
-    AWS_STORAGE_BUCKET_NAME = R2_BUCKET_NAME
-    AWS_S3_ENDPOINT_URL = f'https://{R2_ACCOUNT_ID}.r2.cloudflarestorage.com'
+if S3_ACCESS_KEY_ID and S3_SECRET_ACCESS_KEY and S3_ENDPOINT_URL:
+    DEFAULT_FILE_STORAGE = 'aminovault.storage_backends.MediaStorage'
+    AWS_ACCESS_KEY_ID = S3_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY = S3_SECRET_ACCESS_KEY
+    AWS_STORAGE_BUCKET_NAME = S3_BUCKET_NAME
+    AWS_S3_ENDPOINT_URL = S3_ENDPOINT_URL
     AWS_S3_REGION_NAME = 'auto'
+    AWS_S3_ADDRESSING_STYLE = 'path'
     AWS_DEFAULT_ACL = 'public-read'
     AWS_S3_FILE_OVERWRITE = False
     AWS_QUERYSTRING_AUTH = False
-    if R2_CUSTOM_DOMAIN:
-        AWS_S3_CUSTOM_DOMAIN = R2_CUSTOM_DOMAIN
-        MEDIA_URL = f'https://{R2_CUSTOM_DOMAIN}/'
+    if S3_CUSTOM_DOMAIN:
+        AWS_S3_CUSTOM_DOMAIN = S3_CUSTOM_DOMAIN
+        MEDIA_URL = f'https://{S3_CUSTOM_DOMAIN}/media/'
     else:
-        MEDIA_URL = f'https://{R2_BUCKET_NAME}.{R2_ACCOUNT_ID}.r2.cloudflarestorage.com/'
+        MEDIA_URL = f'{S3_ENDPOINT_URL}/{S3_BUCKET_NAME}/media/'
 else:
     MEDIA_URL = '/media/'
     MEDIA_ROOT = BASE_DIR / 'media'
