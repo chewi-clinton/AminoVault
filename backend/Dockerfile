@@ -19,4 +19,4 @@ RUN python manage.py collectstatic --noinput
 
 EXPOSE 11000
 
-CMD ["gunicorn", "aminovault.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3", "--timeout", "120"]
+CMD ["gunicorn", "aminovault.wsgi:application", "--bind", "0.0.0.0:11000", "--workers", "3", "--timeout", "120"]
