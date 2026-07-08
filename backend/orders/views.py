@@ -1,7 +1,9 @@
 from decimal import Decimal
+from django.db.models import Sum
+from django.utils import timezone
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAdminUser
 from rest_framework.response import Response
 from products.models import Product, Coupon
 from .models import Order, OrderItem
@@ -140,3 +142,22 @@ def track_order(request):
         )
 
     return Response(OrderSerializer(order).data)
+
+
+@api_view(['GET'])
+@permission_classes([IsAdminUser])
+def admin_stats(request):
+    now = timezone.now()
+    total_orders = Order.objects.count()
+    revenue = Order.objects.exclude(status__in=['cancelled', 'refunded']).aggregate(
+        total=Sum('total')
+    )['total'] or Decimal('0')
+    new_customers = Order.objects.filter(
+        created_at__year=now.year, created_at__month=now.month
+    ).values('customer_email').distinct().count()
+
+    return Response({
+        'total_orders': total_orders,
+        'revenue': str(revenue),
+        'new_customers': new_customers,
+    })

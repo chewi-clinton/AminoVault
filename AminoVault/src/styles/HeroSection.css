@@ -28,25 +28,38 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+}
+
+.hero-content .hero-subtitle,
+.hero-content .hero-title,
+.hero-content .feature-item,
+.hero-content .feature-text,
+.hero-content .btn-shop-now {
+  color: #ffffff !important;
 }
 
 .hero-subtitle {
   font-family: "Michroma", sans-serif;
-  font-size: 25px;
+  font-size: clamp(1.6rem, 2.15vw, 2rem);
   font-weight: 700;
-  line-height: 35px;
+  line-height: 1.2;
   text-transform: capitalize;
-  text-shadow: -6px 9px 9px #000;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
   margin: 0;
 }
 
 .hero-title {
   font-family: "Michroma", sans-serif;
-  font-size: 25px;
+  font-size: clamp(1.7rem, 2.4vw, 2.3rem);
   font-weight: 700;
-  line-height: 35px;
+  line-height: 1.25;
   text-transform: capitalize;
-  text-shadow: -6px 9px 9px #000;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
   margin-block-start: 0.5rem;
   margin-block-end: 1rem;
 }
@@ -65,12 +78,13 @@
   align-items: center;
   gap: 12px;
   font-family: "DM Sans", sans-serif;
-  font-size: 22px;
-  font-weight: 400;
-  line-height: 17px;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  font-weight: 500;
+  line-height: 1.4;
   letter-spacing: 0;
   word-spacing: 1px;
-  text-shadow: -4px 4px 5px #000;
+  color: #ffffff;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.7);
 }
 
 /* Icon Specific Styling */
