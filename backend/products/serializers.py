@@ -2,6 +2,13 @@ from rest_framework import serializers
 from .models import Category, Product, Coupon
 
 
+def _image_src(obj, request):
+    if obj.image:
+        path = f'/media-proxy/{obj.image.name}'
+        return request.build_absolute_uri(path) if request else path
+    return obj.image_url or ''
+
+
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
@@ -26,12 +33,7 @@ class ProductSerializer(serializers.ModelSerializer):
         ]
 
     def get_image_src(self, obj):
-        request = self.context.get('request')
-        if obj.image:
-            if request:
-                return request.build_absolute_uri(obj.image.url)
-            return obj.image.url
-        return obj.image_url or ''
+        return _image_src(obj, self.context.get('request'))
 
 
 class AdminProductSerializer(serializers.ModelSerializer):
@@ -52,10 +54,7 @@ class AdminProductSerializer(serializers.ModelSerializer):
         ]
 
     def get_image_src(self, obj):
-        request = self.context.get('request')
-        if obj.image:
-            return request.build_absolute_uri(obj.image.url) if request else obj.image.url
-        return obj.image_url or ''
+        return _image_src(obj, self.context.get('request'))
 
 
 class CouponValidateSerializer(serializers.Serializer):
