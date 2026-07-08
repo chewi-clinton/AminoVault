@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import AdminLayout from "./AdminLayout";
 import "./AdminProductForm.css";
@@ -6,9 +6,18 @@ import "./AdminProductForm.css";
 const API = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 const EMPTY = {
-  name: "", sku: "", variant: "", price: "", old_price: "",
-  description: "", image_url: "", sort_order: "0",
-  category_id: "", in_stock: true, is_featured: false, is_upsell: false,
+  name: "",
+  sku: "",
+  variant: "",
+  price: "",
+  old_price: "",
+  description: "",
+  image_url: "",
+  sort_order: "0",
+  category_id: "",
+  in_stock: true,
+  is_featured: false,
+  is_upsell: false,
 };
 
 function authHeaders(isJson = true) {
@@ -29,6 +38,8 @@ export default function AdminProductForm() {
   const [saving, setSaving] = useState(false);
   const [errors, setErrors] = useState({});
   const [toast, setToast] = useState("");
+  const [imageFile, setImageFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState("");
 
   // Load categories
   useEffect(() => {
@@ -43,7 +54,8 @@ export default function AdminProductForm() {
     if (!isEdit) return;
     fetch(`${API}/api/products/admin/${id}/`, { headers: authHeaders() })
       .then((r) => {
-        if (r.status === 401 || r.status === 403) navigate("/admin/login", { replace: true });
+        if (r.status === 401 || r.status === 403)
+          navigate("/admin/login", { replace: true });
         return r.json();
       })
       .then((p) => {
@@ -61,6 +73,7 @@ export default function AdminProductForm() {
           is_featured: p.is_featured ?? false,
           is_upsell: p.is_upsell ?? false,
         });
+        setImagePreview(p.image_url ?? "");
       })
       .catch(() => {})
       .finally(() => setLoading(false));
@@ -69,8 +82,25 @@ export default function AdminProductForm() {
   function onChange(e) {
     const { name, value, type, checked } = e.target;
     setForm((f) => ({ ...f, [name]: type === "checkbox" ? checked : value }));
-    setErrors((er) => { const n = { ...er }; delete n[name]; return n; });
+    setErrors((er) => {
+      const n = { ...er };
+      delete n[name];
+      return n;
+    });
   }
+
+  const handleImageChange = useCallback((e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setImageFile(file);
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImagePreview(reader.result);
+    };
+    reader.readAsDataURL(file);
+  }, []);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -84,7 +114,7 @@ export default function AdminProductForm() {
       price: form.price,
       old_price: form.old_price || null,
       description: form.description,
-      image_url: form.image_url,
+      // image_url is handled by file upload
       sort_order: parseInt(form.sort_order, 10) || 0,
       category_id: form.category_id || null,
       in_stock: form.in_stock,
@@ -92,19 +122,33 @@ export default function AdminProductForm() {
       is_upsell: form.is_upsell,
     };
 
+    const formData = new FormData();
+    for (const key in body) {
+      if (body[key] !== null && typeof body[key] !== "undefined") {
+        formData.append(key, body[key]);
+      }
+    }
+    if (imageFile) {
+      formData.append("image", imageFile);
+    }
+
     try {
       const url = isEdit
         ? `${API}/api/products/admin/${id}/`
         : `${API}/api/products/admin/`;
       const res = await fetch(url, {
         method: isEdit ? "PATCH" : "POST",
-        headers: authHeaders(),
-        body: JSON.stringify(body),
+        headers: authHeaders(false),
+        body: formData,
       });
       const data = await res.json();
 
       if (!res.ok) {
-        setErrors(typeof data === "object" ? data : { non_field_errors: [String(data)] });
+        setErrors(
+          typeof data === "object"
+            ? data
+            : { non_field_errors: [String(data)] },
+        );
         return;
       }
 
@@ -135,13 +179,29 @@ export default function AdminProductForm() {
   return (
     <AdminLayout>
       <div className="avf-header">
-        <button className="avf-back" onClick={() => navigate("/admin/products")}>
-          <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path d="M19 12H5M12 5l-7 7 7 7" strokeLinecap="round" strokeLinejoin="round" />
+        <button
+          className="avf-back"
+          onClick={() => navigate("/admin/products")}
+        >
+          <svg
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 12H5M12 5l-7 7 7 7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
           </svg>
           Back to Products
         </button>
-        <h2 className="avf-title">{isEdit ? "Edit Product" : "Add New Product"}</h2>
+        <h2 className="avf-title">
+          {isEdit ? "Edit Product" : "Add New Product"}
+        </h2>
       </div>
 
       <form className="avf-form" onSubmit={handleSubmit} noValidate>
@@ -156,15 +216,36 @@ export default function AdminProductForm() {
               <h3 className="avf-card-title">Basic Info</h3>
 
               <Field label="Product Name" error={errors.name}>
-                <input name="name" value={form.name} onChange={onChange} required placeholder="e.g. BPC-157" />
+                <input
+                  name="name"
+                  value={form.name}
+                  onChange={onChange}
+                  required
+                  placeholder="e.g. BPC-157"
+                />
               </Field>
 
               <Field label="SKU" error={errors.sku}>
-                <input name="sku" value={form.sku} onChange={onChange} required placeholder="e.g. BPC157-10MG" />
+                <input
+                  name="sku"
+                  value={form.sku}
+                  onChange={onChange}
+                  required
+                  placeholder="e.g. BPC157-10MG"
+                />
               </Field>
 
-              <Field label="Variant" error={errors.variant} hint="e.g. 10mg, 5mg, 1000mg">
-                <input name="variant" value={form.variant} onChange={onChange} placeholder="10mg" />
+              <Field
+                label="Variant"
+                error={errors.variant}
+                hint="e.g. 10mg, 5mg, 1000mg"
+              >
+                <input
+                  name="variant"
+                  value={form.variant}
+                  onChange={onChange}
+                  placeholder="10mg"
+                />
               </Field>
 
               <Field label="Description" error={errors.description}>
@@ -180,18 +261,26 @@ export default function AdminProductForm() {
 
             <div className="avf-card">
               <h3 className="avf-card-title">Image</h3>
-              <Field label="Image URL" error={errors.image_url} hint="Direct URL to product image (JPG/PNG/WebP)">
+              <Field
+                label="Product Image"
+                error={errors.image}
+                hint="Upload a JPG, PNG, or WebP file."
+              >
                 <input
-                  name="image_url"
-                  value={form.image_url}
-                  onChange={onChange}
-                  type="url"
-                  placeholder="https://…"
+                  name="image"
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp"
+                  onChange={handleImageChange}
+                  className="avf-file-input"
                 />
               </Field>
-              {form.image_url && (
+              {imagePreview && (
                 <div className="avf-image-preview">
-                  <img src={form.image_url} alt="Preview" onError={(e) => (e.target.style.display = "none")} />
+                  <img
+                    src={imagePreview}
+                    alt="Preview"
+                    onError={() => setImagePreview("")}
+                  />
                 </div>
               )}
             </div>
@@ -204,10 +293,31 @@ export default function AdminProductForm() {
 
               <div className="avf-row-2">
                 <Field label="Price ($)" error={errors.price}>
-                  <input name="price" value={form.price} onChange={onChange} required type="number" step="0.01" min="0" placeholder="64.00" />
+                  <input
+                    name="price"
+                    value={form.price}
+                    onChange={onChange}
+                    required
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    placeholder="64.00"
+                  />
                 </Field>
-                <Field label="Original Price ($)" error={errors.old_price} hint="Leave empty if no discount">
-                  <input name="old_price" value={form.old_price} onChange={onChange} type="number" step="0.01" min="0" placeholder="80.00" />
+                <Field
+                  label="Original Price ($)"
+                  error={errors.old_price}
+                  hint="Leave empty if no discount"
+                >
+                  <input
+                    name="old_price"
+                    value={form.old_price}
+                    onChange={onChange}
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    placeholder="80.00"
+                  />
                 </Field>
               </div>
             </div>
@@ -216,16 +326,32 @@ export default function AdminProductForm() {
               <h3 className="avf-card-title">Organisation</h3>
 
               <Field label="Category" error={errors.category_id}>
-                <select name="category_id" value={form.category_id} onChange={onChange}>
+                <select
+                  name="category_id"
+                  value={form.category_id}
+                  onChange={onChange}
+                >
                   <option value="">— No category —</option>
                   {categories.map((c) => (
-                    <option key={c.id} value={c.id}>{c.name}</option>
+                    <option key={c.id} value={c.id}>
+                      {c.name}
+                    </option>
                   ))}
                 </select>
               </Field>
 
-              <Field label="Sort Order" error={errors.sort_order} hint="Lower numbers appear first">
-                <input name="sort_order" value={form.sort_order} onChange={onChange} type="number" min="0" />
+              <Field
+                label="Sort Order"
+                error={errors.sort_order}
+                hint="Lower numbers appear first"
+              >
+                <input
+                  name="sort_order"
+                  value={form.sort_order}
+                  onChange={onChange}
+                  type="number"
+                  min="0"
+                />
               </Field>
             </div>
 
@@ -233,16 +359,38 @@ export default function AdminProductForm() {
               <h3 className="avf-card-title">Flags</h3>
 
               <div className="avf-toggles">
-                <Toggle name="in_stock" checked={form.in_stock} onChange={onChange} label="In Stock" desc="Product is available for purchase" />
-                <Toggle name="is_featured" checked={form.is_featured} onChange={onChange} label="Featured" desc="Show in featured sections" />
-                <Toggle name="is_upsell" checked={form.is_upsell} onChange={onChange} label="Upsell / FBT" desc="Show in cart's Frequently Bought Together" />
+                <Toggle
+                  name="in_stock"
+                  checked={form.in_stock}
+                  onChange={onChange}
+                  label="In Stock"
+                  desc="Product is available for purchase"
+                />
+                <Toggle
+                  name="is_featured"
+                  checked={form.is_featured}
+                  onChange={onChange}
+                  label="Featured"
+                  desc="Show in featured sections"
+                />
+                <Toggle
+                  name="is_upsell"
+                  checked={form.is_upsell}
+                  onChange={onChange}
+                  label="Upsell / FBT"
+                  desc="Show in cart's Frequently Bought Together"
+                />
               </div>
             </div>
           </div>
         </div>
 
         <div className="avf-footer">
-          <button type="button" className="avf-cancel" onClick={() => navigate("/admin/products")}>
+          <button
+            type="button"
+            className="avf-cancel"
+            onClick={() => navigate("/admin/products")}
+          >
             Cancel
           </button>
           <button type="submit" className="avf-save" disabled={saving}>
@@ -262,7 +410,11 @@ function Field({ label, children, error, hint }) {
       <label className="avf-label">{label}</label>
       {children}
       {hint && !error && <span className="avf-hint">{hint}</span>}
-      {error && <span className="avf-field-error">{Array.isArray(error) ? error[0] : error}</span>}
+      {error && (
+        <span className="avf-field-error">
+          {Array.isArray(error) ? error[0] : error}
+        </span>
+      )}
     </div>
   );
 }
@@ -275,7 +427,12 @@ function Toggle({ name, checked, onChange, label, desc }) {
         <span className="avf-toggle-desc">{desc}</span>
       </div>
       <div className={`avf-switch ${checked ? "on" : ""}`}>
-        <input type="checkbox" name={name} checked={checked} onChange={onChange} />
+        <input
+          type="checkbox"
+          name={name}
+          checked={checked}
+          onChange={onChange}
+        />
         <span className="avf-switch-thumb" />
       </div>
     </label>

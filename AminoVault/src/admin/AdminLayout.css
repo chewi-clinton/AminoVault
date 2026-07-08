@@ -3,17 +3,17 @@
 .av-admin-shell {
   display: flex;
   min-height: 100vh;
-  background: #0f0f13;
+  background: #f8f9fa; /* Light background */
   font-family: "DM Sans", sans-serif;
-  color: #e2e2e2;
+  color: #343a40; /* Dark text */
 }
 
 /* ── Sidebar ── */
 .av-admin-sidebar {
   width: 220px;
   flex-shrink: 0;
-  background: #17171d;
-  border-right: 1px solid #2a2a35;
+  background: #ffffff; /* White sidebar */
+  border-right: 1px solid #dee2e6; /* Light border */
   display: flex;
   flex-direction: column;
   padding: 28px 0 24px;
@@ -27,7 +27,7 @@
   align-items: center;
   justify-content: center;
   padding: 0 16px 24px;
-  border-bottom: 1px solid #2a2a35;
+  border-bottom: 1px solid #dee2e6; /* Light border */
 }
 
 .av-admin-logo-img {
@@ -50,7 +50,7 @@
   gap: 10px;
   padding: 10px 12px;
   border-radius: 8px;
-  color: #9a9aaa;
+  color: #495057; /* Darker link color */
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -58,13 +58,14 @@
 }
 
 .av-admin-nav-link:hover {
-  background: #22222c;
-  color: #e2e2e2;
+  background: #f1f3f5; /* Light hover background */
+  color: #000;
 }
 
 .av-admin-nav-link.active {
-  background: rgba(202, 51, 210, 0.15);
-  color: #d966e0;
+  background: rgba(202, 51, 210, 0.1); /* Purple accent for active */
+  color: #9b1ea3;
+  font-weight: 600;
 }
 
 .av-admin-logout {
@@ -76,17 +77,18 @@
   border-radius: 8px;
   background: none;
   border: none;
-  color: #9a9aaa;
+  color: #495057;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   width: calc(100% - 24px);
+  text-align: left;
   transition: background 0.15s, color 0.15s;
 }
 
 .av-admin-logout:hover {
-  background: rgba(239, 68, 68, 0.12);
-  color: #f87171;
+  background: rgba(239, 68, 68, 0.1);
+  color: #d94848;
 }
 
 /* ── Main ── */
@@ -99,14 +101,14 @@
 
 .av-admin-topbar {
   padding: 16px 32px;
-  border-bottom: 1px solid #2a2a35;
-  background: #17171d;
+  border-bottom: 1px solid #dee2e6;
+  background: #ffffff; /* White topbar */
   font-size: 14px;
-  color: #9a9aaa;
+  color: #6c757d;
 }
 
 .av-admin-topbar strong {
-  color: #e2e2e2;
+  color: #343a40;
 }
 
 .av-admin-content {
@@ -125,4 +127,5 @@
   }
   .av-admin-nav-link, .av-admin-logout { justify-content: center; gap: 0; }
   .av-admin-content { padding: 20px; }
+  .av-admin-topbar { padding: 16px 20px; }
 }

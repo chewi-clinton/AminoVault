@@ -4,7 +4,7 @@
 
 .av-login-page {
   min-height: 100vh;
-  background: #0f0f13;
+  background: #f0f2f5; /* Light background */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,8 +15,8 @@
 .av-login-card {
   width: 100%;
   max-width: 420px;
-  background: #17171d;
-  border: 1px solid #2a2a35;
+  background: #ffffff; /* White card background */
+  border: 1px solid #e0e0e0; /* Lighter border */
   border-radius: 16px;
   padding: 40px 36px;
 }
@@ -37,13 +37,13 @@
 .av-login-title {
   font-size: 22px;
   font-weight: 600;
-  color: #fff;
+  color: #333; /* Darker text */
   margin-bottom: 6px;
 }
 
 .av-login-subtitle {
   font-size: 14px;
-  color: #6b6b7e;
+  color: #666; /* Darker gray text */
 }
 
 .av-login-form {
@@ -70,23 +70,23 @@
 .av-login-field label {
   font-size: 13px;
   font-weight: 500;
-  color: #9a9aaa;
+  color: #555; /* Darker gray label */
 }
 
 .av-login-field input {
-  background: #0f0f13;
-  border: 1px solid #2a2a35;
+  background: #f8f8f8; /* Light input background */
+  border: 1px solid #ccc; /* Lighter input border */
   border-radius: 8px;
   padding: 11px 14px;
   font-size: 14px;
-  color: #e2e2e2;
+  color: #333; /* Dark input text */
   outline: none;
   width: 100%;
   transition: border-color 0.15s;
   font-family: inherit;
 }
 
-.av-login-field input::placeholder { color: #3e3e50; }
+.av-login-field input::placeholder { color: #888; /* Darker placeholder */ }
 
 .av-login-field input:focus {
   border-color: #ca33d2;
@@ -107,7 +107,7 @@
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: #6b6b7e;
+  color: #777; /* Darker eye icon */
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -119,7 +119,7 @@
 
 .av-login-btn {
   padding: 12px;
-  background: linear-gradient(135deg, #ca33d2, #9b1ea3);
+  background: linear-gradient(90deg, #8801ff 0%, #e91831 100%); /* Homepage gradient */
   color: #fff;
   font-size: 14px;
   font-weight: 600;
