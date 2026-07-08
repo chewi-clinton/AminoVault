@@ -1,0 +1,342 @@
+/*
+  Styles for Admin Product Form Page
+*/
+
+.avf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.avf-title {
+  font-family: "Michroma", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.avf-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px 0;
+}
+.avf-back:hover {
+  color: #ca33d2;
+}
+
+.avf-form {
+  width: 100%;
+}
+
+.avf-error-banner {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.avf-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 992px) {
+  .avf-grid {
+    grid-template-columns: 2fr 1fr;
+    align-items: flex-start;
+  }
+}
+
+.avf-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.avf-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.avf-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #212121;
+  margin: 0 0 24px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.avf-field {
+  margin-bottom: 20px;
+}
+.avf-field:last-child {
+  margin-bottom: 0;
+}
+
+.avf-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #424242;
+  margin-bottom: 8px;
+}
+
+.avf-field input[type="text"],
+.avf-field input[type="email"],
+.avf-field input[type="url"],
+.avf-field input[type="number"],
+.avf-field textarea,
+.avf-field select {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  background: #fff;
+  color: #212121;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.avf-field input:focus,
+.avf-field textarea:focus,
+.avf-field select:focus {
+  outline: none;
+  border-color: #ca33d2;
+  box-shadow: 0 0 0 3px rgba(202, 51, 210, 0.15);
+}
+
+.avf-hint {
+  display: block;
+  font-size: 12px;
+  color: #757575;
+  margin-top: 6px;
+}
+
+.avf-field-error {
+  display: block;
+  font-size: 13px;
+  color: #d32f2f;
+  margin-top: 6px;
+}
+
+.avf-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Image Upload */
+.avf-file-input {
+  font-size: 14px;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  padding: 8px;
+  width: 100%;
+}
+.avf-file-input::file-selector-button {
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  background: #f5f5f5;
+  color: #424242;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-right: 12px;
+}
+.avf-file-input::file-selector-button:hover {
+  background: #eeeeee;
+}
+
+.avf-image-preview {
+  margin-top: 16px;
+  max-width: 150px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 4px;
+  background: #fafafa;
+}
+.avf-image-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+/* Toggles */
+.avf-toggles {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.avf-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.avf-toggle:hover {
+  background: #fafafa;
+}
+.avf-toggle-info {
+  margin-right: 16px;
+}
+.avf-toggle-label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #424242;
+}
+.avf-toggle-desc {
+  display: block;
+  font-size: 13px;
+  color: #757575;
+  margin-top: 2px;
+}
+.avf-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.avf-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.avf-switch-thumb {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 24px;
+}
+.avf-switch-thumb:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+.avf-switch.on .avf-switch-thumb {
+  background-color: #9b1ea3;
+}
+.avf-switch.on .avf-switch-thumb:before {
+  transform: translateX(20px);
+}
+
+/* Footer */
+.avf-footer {
+  margin-top: 24px;
+  padding: 16px 24px;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.avf-cancel,
+.avf-save {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.avf-cancel {
+  background: #f5f5f5;
+  border-color: #e0e0e0;
+  color: #424242;
+}
+.avf-cancel:hover {
+  background: #eeeeee;
+  border-color: #bdbdbd;
+}
+
+.avf-save {
+  background: #9b1ea3;
+  color: #fff;
+}
+.avf-save:hover {
+  background: #891a90;
+}
+.avf-save:disabled {
+  background: #e0e0e0;
+  cursor: not-allowed;
+}
+
+/* Loading & Toast */
+.avf-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 60px 20px;
+  font-size: 16px;
+  color: #757575;
+}
+.avf-spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #9b1ea3;
+  border-radius: 50%;
+  animation: avf-spin 1s linear infinite;
+}
+@keyframes avf-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.avf-toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}

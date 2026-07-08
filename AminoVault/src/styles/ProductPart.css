@@ -1,3 +1,11 @@
+.products-loading {
+  text-align: center;
+  padding: 60px 20px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  color: #666;
+}
+
 /* --- COLLECTION HEADING --- */
 .collection-heading {
   font-family: "Michroma", sans-serif;

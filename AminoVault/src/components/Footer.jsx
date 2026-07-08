@@ -110,14 +110,12 @@ const Footer = () => {
         </div>
 
         <div className="bottom-right social-links">
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-instagram"></i> Instagram
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a
+            href="www.tiktok.com/@bill_gallant_"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fab fa-tiktok"></i> TikTok
-          </a>
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-facebook"></i> Facebook
           </a>
         </div>
       </div>
