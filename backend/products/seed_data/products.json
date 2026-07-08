@@ -1,0 +1,736 @@
+[
+  {
+    "slug": "aminovault-peptide-travel-case",
+    "name": "AminoVault Peptide Travel Case",
+    "seo_title": "AminoVault Peptide Travel Case",
+    "description": "AminoVault Peptide Travel Case, a portable TSA-approved storage case with built-in temp display, insulated interior, and up to 12 hours of cold protection for research travel.",
+    "category": "Cellular Structure &amp; Matrix Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2026/07/Case2AminoVault.webp",
+    "variations": [],
+    "simple_price": "25.50",
+    "simple_regular_price": "30.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2026/07/Case2AminoVault.webp": "aminovault-peptide-travel-case-f606e4aa.webp"
+    }
+  },
+  {
+    "slug": "bac-water-10-ml",
+    "name": "AminoVault Bacteriostatic Water 10 ML",
+    "seo_title": "Research Peptide Bacteriostatic Water 10 ML",
+    "description": "Research Peptide Bacteriostatic Water for Injection with 0.9% benzyl alcohol. Sterile, multi-dose vials at AminoVault. Ideal for reconstitution & research use.",
+    "category": "Musculoskeletal Function &amp; Protein Synthesis Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2026/06/AVBAC10ml.webp",
+    "variations": [],
+    "simple_price": "17.50",
+    "simple_regular_price": null,
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2026/06/AVBAC10ml.webp": "bac-water-10-ml-f03261ee.webp"
+    }
+  },
+  {
+    "slug": "bpc-157",
+    "name": "BPC-157 10mg",
+    "seo_title": "Best BPC-157",
+    "description": "Buy the best BPC-157 peptides online at AminoVault. Premium research peptides for peak performance. Made in the USA at AminoVault.",
+    "category": "Immune Modulation &amp; Regenerative Processes Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/BPC10MGAV-.webp",
+    "variations": [
+      {
+        "sku": "102-110-157",
+        "variant": "Research",
+        "display_name": "BPC-157 10mg - Research",
+        "price": 73,
+        "regular_price": 73,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/AminoVault-BPC-1.webp",
+        "in_stock": true
+      },
+      {
+        "sku": "102-110-157-1",
+        "variant": "Clinical",
+        "display_name": "BPC-157 10mg - Clinical",
+        "price": 195,
+        "regular_price": 195,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/AminoVault-BPC-1.webp",
+        "in_stock": false
+      }
+    ],
+    "simple_price": null,
+    "simple_regular_price": null,
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/BPC10MGAV-.webp": "bpc-157-2c0a265a.webp",
+      "https://aminovault.com/wp-content/uploads/2025/07/AminoVault-BPC-1.webp": "bpc-157-f097deec.webp"
+    }
+  },
+  {
+    "slug": "cjc-1295-ipamorelin",
+    "name": "CJC-1295 + Ipamorelin - Clinical Grade",
+    "seo_title": "CJC-1295 + Ipamorelin \u2013 Growth Hormone 99%+ Pure",
+    "description": "CJC-1295 + Ipamorelin for growth hormone pulsatility research. Immediate and long-lasting stimulation of GH secretion, mimicking natural pulsatile rhythm more effectively than either peptide alone",
+    "category": "Musculoskeletal Function &amp; Protein Synthesis Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/12/cjc-ipa10mg.webp",
+    "variations": [],
+    "simple_price": "125.79",
+    "simple_regular_price": "147.99",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/12/cjc-ipa10mg.webp": "cjc-1295-ipamorelin-c6f34ec9.webp"
+    }
+  },
+  {
+    "slug": "cjc-1295-no-dac",
+    "name": "CJC-1295 No DAC 10mg",
+    "seo_title": "CJC-1295 No DAC \u2013 Growth Hormone 99%+ Pure",
+    "description": "Short-acting CJC-1295 (No DAC) for growth hormone pulsatility research. Study somatotroph activation and IGF-1 signaling. \u226599% purity, COA.",
+    "category": "Musculoskeletal Function &amp; Protein Synthesis Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/CJC1295NODAC.webp",
+    "variations": [],
+    "simple_price": "83.30",
+    "simple_regular_price": "98.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/CJC1295NODAC.webp": "cjc-1295-no-dac-3e68fdf3.webp"
+    }
+  },
+  {
+    "slug": "ebac-water-30-ml",
+    "name": "eBac Water 30 ML",
+    "seo_title": "BAC Water Peptide Reconstitution Solution 30 ML",
+    "description": "Buy 30mL Bac Water for Injection (USP) with 0.9% benzyl alcohol. Sterile, multi-dose vial similiar to Hospira. Ideal for reconstitution and research peptide use.",
+    "category": "Neurological Signaling &amp; Cognitive Pathways Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2026/03/ebacWater1-1.webp",
+    "variations": [
+      {
+        "sku": "BAC-0001",
+        "variant": "1 Pack",
+        "display_name": "eBac Water 30 ML - 1 Pack",
+        "price": 28,
+        "regular_price": 28,
+        "image": "https://aminovault.com/wp-content/uploads/2026/03/ebacWater1.webp",
+        "in_stock": true
+      },
+      {
+        "sku": "BAC-0002",
+        "variant": "2 Pack",
+        "display_name": "eBac Water 30 ML - 2 Pack",
+        "price": 52,
+        "regular_price": 52,
+        "image": "https://aminovault.com/wp-content/uploads/2026/03/ebacWater2.webp",
+        "in_stock": true
+      },
+      {
+        "sku": "BAC-0003",
+        "variant": "3 Pack",
+        "display_name": "eBac Water 30 ML - 3 Pack",
+        "price": 78,
+        "regular_price": 78,
+        "image": "https://aminovault.com/wp-content/uploads/2026/03/ebacWater3.webp",
+        "in_stock": true
+      },
+      {
+        "sku": "BAC-0004",
+        "variant": "4 Pack",
+        "display_name": "eBac Water 30 ML - 4 Pack",
+        "price": 100,
+        "regular_price": 100,
+        "image": "https://aminovault.com/wp-content/uploads/2026/03/ebacWater4.webp",
+        "in_stock": true
+      }
+    ],
+    "simple_price": null,
+    "simple_regular_price": null,
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2026/03/ebacWater1-1.webp": "ebac-water-30-ml-9c6bcc0b.webp",
+      "https://aminovault.com/wp-content/uploads/2026/03/ebacWater2.webp": "ebac-water-30-ml-5d3b80be.webp",
+      "https://aminovault.com/wp-content/uploads/2026/03/ebacWater1.webp": "ebac-water-30-ml-6d933413.webp",
+      "https://aminovault.com/wp-content/uploads/2026/03/ebacWater4.webp": "ebac-water-30-ml-fb2912c1.webp",
+      "https://aminovault.com/wp-content/uploads/2026/03/ebacWater3.webp": "ebac-water-30-ml-04055391.webp"
+    }
+  },
+  {
+    "slug": "epithalon-epitalon",
+    "name": "Epithalon - Epitalon 10mg",
+    "seo_title": "Epithalon - Epitalon 99%+ Pure Research Peptide",
+    "description": "Epithalon / Epitalon research peptide forcellular aging, circadian signaling, and longevity studies. 99%+ purity, COA included at AminoVault.",
+    "category": "Cellular Structure &amp; Matrix Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/Epithalon-10mg.webp",
+    "variations": [
+      {
+        "sku": "18-1193-47",
+        "variant": "Research",
+        "display_name": "Epithalon - Epitalon 10mg - Research",
+        "price": 47.6,
+        "regular_price": 56,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/Epithalon.webp",
+        "in_stock": true
+      },
+      {
+        "sku": "18-1193-47C",
+        "variant": "Clinical",
+        "display_name": "Epithalon - Epitalon 10mg - Clinical",
+        "price": 168,
+        "regular_price": 168,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/Epithalon.webp",
+        "in_stock": true
+      }
+    ],
+    "simple_price": null,
+    "simple_regular_price": null,
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/Epithalon.webp": "epithalon-epitalon-7aac8d20.webp",
+      "https://aminovault.com/wp-content/uploads/2025/07/Epithalon-10mg.webp": "epithalon-epitalon-ba3ef917.webp"
+    }
+  },
+  {
+    "slug": "ghk-cu",
+    "name": "GHK-Cu 100mg",
+    "seo_title": "Shop 99% Pure GHK-Cu Copper Peptides",
+    "description": "Buy 99% pure GHK-Cu copper peptide at AminoVault. Premium research peptides made in the USA. COA included only at AminoVault.",
+    "category": "Cellular Structure &amp; Matrix Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/GHKHADOW_AV.webp",
+    "variations": [],
+    "simple_price": "71.40",
+    "simple_regular_price": "84.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/GHKHADOW_AV.webp": "ghk-cu-3d99e95f.webp"
+    }
+  },
+  {
+    "slug": "hospira-bac-water-30-ml",
+    "name": "Hospira (Pfizer) Water 30 ML",
+    "seo_title": "Hospira BAC Water Peptide Reconstitution Solution",
+    "description": "30mL Hospira Bac Water for Injection (USP) with 0.9% benzyl alcohol. Sterile, multi-dose vial from Hospira - Pfizer. Ideal for reconstitution and peptide use.",
+    "category": "Cellular Structure &amp; Matrix Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2026/03/hospira_bac.webp",
+    "variations": [],
+    "simple_price": "32.00",
+    "simple_regular_price": null,
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2026/03/hospira_bac.webp": "hospira-bac-water-30-ml-6ebb0d8f.webp"
+    }
+  },
+  {
+    "slug": "ipamorelin",
+    "name": "Ipamorelin 10mg",
+    "seo_title": "Ipamorelin \u2013 99%+ Research Peptide",
+    "description": "Research\u2011grade Ipamorelin (USA). \u226599% purity with batch COA. Fast shipping. For laboratory research only \u2014 NOT for human use.",
+    "category": "Musculoskeletal Function &amp; Protein Synthesis Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/IPASHADOW_AV.webp",
+    "variations": [],
+    "simple_price": "62.05",
+    "simple_regular_price": "73.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/IPASHADOW_AV.webp": "ipamorelin-e4d28d51.webp"
+    }
+  },
+  {
+    "slug": "klow",
+    "name": "KLOW Stack 80mg",
+    "seo_title": "KLOW Peptide KPV, BPC-157, TB-500 & GHK-Cu",
+    "description": "KLOW Peptide combines KPV, BPC-157, TB-500, and GHK-Cu in one vial. High-purity, cGMP-made in the USA with COA&#039;s. Research use only.",
+    "category": "Immune Modulation &amp; Regenerative Processes Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2026/06/KLOW80New.webp",
+    "variations": [
+      {
+        "sku": "861-4573-80R",
+        "variant": "Research",
+        "display_name": "KLOW Stack 80mg - Research",
+        "price": 114.75,
+        "regular_price": 135,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/KLOW10MG.webp",
+        "in_stock": true
+      },
+      {
+        "sku": "861-4573-80C",
+        "variant": "Clinical",
+        "display_name": "KLOW Stack 80mg - Clinical",
+        "price": 225.25,
+        "regular_price": 265,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/KLOW10MG.webp",
+        "in_stock": true
+      }
+    ],
+    "simple_price": null,
+    "simple_regular_price": null,
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2026/06/KLOW80New.webp": "klow-aa0cd7a8.webp",
+      "https://aminovault.com/wp-content/uploads/2025/07/KLOW10MG.webp": "klow-05758fab.webp"
+    }
+  },
+  {
+    "slug": "kpv10",
+    "name": "KPV 10mg",
+    "seo_title": "KPV Peptide (Lys\u2013Pro\u2013Val) 99%+ Pure USA Made",
+    "description": "KPV peptide aids inflammation and epithelial barrier models. \u226599% purity, GMP-made in the USA. COA included. Lab use only at AminoVault.",
+    "category": "Immune Modulation &amp; Regenerative Processes Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/kpv10mgav.webp",
+    "variations": [],
+    "simple_price": "73.95",
+    "simple_regular_price": "87.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/kpv10mgav.webp": "kpv10-765a9045.webp"
+    }
+  },
+  {
+    "slug": "l-glutathione",
+    "name": "L-Glutathione 1500mg",
+    "seo_title": "Glutathione 99%+ Pure US Made Research Peptide",
+    "description": "L-Glutathione is a US Made Research Peptide at AminoVault. \u226599% purity with batch COAs. Fast shipping. For laboratory research only.",
+    "category": "Neurological Signaling &amp; Cognitive Pathways Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/LGLUTSHADOW_AV.webp",
+    "variations": [],
+    "simple_price": "72.68",
+    "simple_regular_price": "85.50",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/LGLUTSHADOW_AV.webp": "l-glutathione-175a8833.webp"
+    }
+  },
+  {
+    "slug": "melanotan-2",
+    "name": "Melanotan II 10mg",
+    "seo_title": "Melanotan II (MT-II) Research Peptide",
+    "description": "Study Melanotan II for melanocortin signaling\u2014melanogenesis, UV/photobiology, and metabolic pathways. \u226599% purity, USA GMP manufacturing, COA included. RUO.",
+    "category": "Cellular Structure &amp; Matrix Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/Melanotan-II-new-1024x1024.webp",
+    "variations": [
+      {
+        "sku": "87-4993-19",
+        "variant": "Research",
+        "display_name": "Melanotan II 10mg - Research",
+        "price": 52.28,
+        "regular_price": 61.5,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/Melanotan-10mg.webp",
+        "in_stock": true
+      },
+      {
+        "sku": "87-4993-19C",
+        "variant": "Clinical",
+        "display_name": "Melanotan II 10mg - Clinical",
+        "price": 165.75,
+        "regular_price": 195,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/Melanotan-10mg.webp",
+        "in_stock": true
+      }
+    ],
+    "simple_price": null,
+    "simple_regular_price": null,
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/Melanotan-10mg.webp": "melanotan-2-d6da8c0a.webp",
+      "https://aminovault.com/wp-content/uploads/2025/07/Melanotan-II-new-1024x1024.webp": "melanotan-2-22764b15.webp"
+    }
+  },
+  {
+    "slug": "mito-31",
+    "name": "Mitoshield-31 (MS-31) 50MG",
+    "seo_title": "MS-31 - Mitochondria Targeted Research Peptide",
+    "description": "Study our Mitochondria Targeted Research Peptide similar to SS-31 (Elamipretide) for mitochondrial interaction, ROS balance, and electron transport markers. 50 MG",
+    "category": "Cellular Structure &amp; Matrix Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/MS-31.webp",
+    "variations": [],
+    "simple_price": "187.00",
+    "simple_regular_price": "220.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/MS-31.webp": "mito-31-9170251d.webp"
+    }
+  },
+  {
+    "slug": "mots-c",
+    "name": "MOTS-c",
+    "seo_title": "MOTS-c 99%+ Research Peptide Made in the USA",
+    "description": "Research grade MOTS-c with \u226599% purity with batch COA. Fast shipping. For laboratory research only and Made in the USA at AminoVault.",
+    "category": "Metabolic Regulation &amp; Energy Pathway Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/MOTSSHADOW_AV.webp",
+    "variations": [
+      {
+        "sku": "13-1576-110",
+        "variant": "Small 10 MG",
+        "display_name": "MOTS-c - Small 10 MG",
+        "price": 59.49,
+        "regular_price": 69.99,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/AminoVault-Mots.webp",
+        "in_stock": true
+      },
+      {
+        "sku": "13-1576-140",
+        "variant": "Large 40 MG",
+        "display_name": "MOTS-c - Large 40 MG",
+        "price": 203.15,
+        "regular_price": 239,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/AVBAC10ml_20260614_163412_0000.webp",
+        "in_stock": true
+      }
+    ],
+    "simple_price": null,
+    "simple_regular_price": null,
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/AVBAC10ml_20260614_163412_0000.webp": "mots-c-127d52fb.webp",
+      "https://aminovault.com/wp-content/uploads/2025/07/AminoVault-Mots.webp": "mots-c-95b05b12.webp",
+      "https://aminovault.com/wp-content/uploads/2025/07/MOTSSHADOW_AV.webp": "mots-c-534c5704.webp"
+    }
+  },
+  {
+    "slug": "nad",
+    "name": "NAD+ 1000mg",
+    "seo_title": "NAD+ Anti Aging Research Peptide",
+    "description": "Research grade NAD+ Made in the USA. High purity with batch COA. Fast shipping. For laboratory research only. Only at AminoVault.",
+    "category": "Cellular Structure &amp; Matrix Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/NAD1000MGnew1.webp",
+    "variations": [],
+    "simple_price": "175.95",
+    "simple_regular_price": "207.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/NAD1000MGnew1.webp": "nad-39d66ed8.webp"
+    }
+  },
+  {
+    "slug": "pt-141-bremelanotide",
+    "name": "PT-141 10mg",
+    "seo_title": "PT-141 Peptide",
+    "description": "PT-141, also known as bremelanotide, studied in laboratory research involving MC4R, MC1R, neuroendocrine signaling, vascular response, & immune pathway models.",
+    "category": "Neurological Signaling &amp; Cognitive Pathways Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/PT141_10.webp",
+    "variations": [
+      {
+        "sku": "36-1796-40",
+        "variant": "Research",
+        "display_name": "PT-141 10mg - Research",
+        "price": 61,
+        "regular_price": 61,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/PT141-10mg.webp",
+        "in_stock": true
+      },
+      {
+        "sku": "36-1796-40C",
+        "variant": "Clinical",
+        "display_name": "PT-141 10mg - Clinical",
+        "price": 192,
+        "regular_price": 192,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/PT141-10mg.webp",
+        "in_stock": true
+      }
+    ],
+    "simple_price": null,
+    "simple_regular_price": null,
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/PT141_10.webp": "pt-141-bremelanotide-a05f3161.webp",
+      "https://aminovault.com/wp-content/uploads/2025/07/PT141-10mg.webp": "pt-141-bremelanotide-b8b5601c.webp"
+    }
+  },
+  {
+    "slug": "reta-glp-3",
+    "name": "GLP-3 (R)",
+    "seo_title": "GLP-3 (RT) Triple G 99%+ USA Made Research Peptide",
+    "description": "Research\u2011grade GLP-3RT. \u226599% purity with batch COA. Fast shipping. For laboratory research only. GMP Certified and USA Made at AminoVault.",
+    "category": "Metabolic Regulation &amp; Energy Pathway Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/GLP3NEW20.webp",
+    "variations": [
+      {
+        "sku": "18-1193-101",
+        "variant": "10mg",
+        "display_name": "GLP-3 (R) - 10mg",
+        "price": 110.5,
+        "regular_price": 130,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/Glp310mg_20260628_151928_0000.webp",
+        "in_stock": true
+      },
+      {
+        "sku": "18-1193-10",
+        "variant": "20mg",
+        "display_name": "GLP-3 (R) - 20mg",
+        "price": 221,
+        "regular_price": 260,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/GLP3-1.webp",
+        "in_stock": true
+      },
+      {
+        "sku": "18-1193-103",
+        "variant": "30mg",
+        "display_name": "GLP-3 (R) - 30mg",
+        "price": 321.3,
+        "regular_price": 378,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/Reta-30mg.webp",
+        "in_stock": true
+      }
+    ],
+    "simple_price": null,
+    "simple_regular_price": null,
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/GLP3NEW20.webp": "reta-glp-3-1db0acf2.webp",
+      "https://aminovault.com/wp-content/uploads/2025/07/Glp310mg_20260628_151928_0000.webp": "reta-glp-3-2fed0461.webp",
+      "https://aminovault.com/wp-content/uploads/2025/07/GLP3-1.webp": "reta-glp-3-31810420.webp",
+      "https://aminovault.com/wp-content/uploads/2025/07/Reta-30mg.webp": "reta-glp-3-3531af58.webp"
+    }
+  },
+  {
+    "slug": "selank",
+    "name": "Selank 10mg",
+    "seo_title": "Selank 10mg Research Peptide",
+    "description": "Selank 10mg is a research peptide studied for neuropeptide signaling, immune response pathways, inflammatory signaling, & stress-response models at AminoVault.",
+    "category": "Neurological Signaling &amp; Cognitive Pathways Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/SELANK10mg.webp",
+    "variations": [],
+    "simple_price": "75.65",
+    "simple_regular_price": "89.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/SELANK10mg.webp": "selank-2c375920.webp"
+    }
+  },
+  {
+    "slug": "selank-semax",
+    "name": "Selank Semax Blend 20mg",
+    "seo_title": "Selank Semax Blend - Focus, Memory, Calm",
+    "description": "Selank Semax blend from AminoVault, supporting focus, memory, learning, & stress resilience with complementary nootropic & anxiolytic pathways.",
+    "category": "Neurological Signaling &amp; Cognitive Pathways Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/SELANK-SEMAX-10.webp",
+    "variations": [],
+    "simple_price": "144.50",
+    "simple_regular_price": "170.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/SELANK-SEMAX-10.webp": "selank-semax-40dc79f6.webp"
+    }
+  },
+  {
+    "slug": "sema-glp-1-receptor",
+    "name": "GLP-1 (S) 10mg",
+    "seo_title": "Glucagon-Like Peptide-1 99%+ Pure Research Peptide",
+    "description": "Research\u2011grade Glucagon-Like Peptide-1. \u226599% purity with batch COA. Fast shipping. For laboratory research only. GMP Certified Made in the USA.",
+    "category": "Metabolic Regulation &amp; Energy Pathway Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/ShadowGLP-1.webp",
+    "variations": [],
+    "simple_price": "79.05",
+    "simple_regular_price": "93.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/ShadowGLP-1.webp": "sema-glp-1-receptor-dcc205e4.webp"
+    }
+  },
+  {
+    "slug": "semax",
+    "name": "Semax 10mg",
+    "seo_title": "Semax 10mg Peptide",
+    "description": "Semax is a synthetic ACTH research peptide studied for neurotrophic expression, oxidative stress response, inflammatory pathways, and nervous system research.",
+    "category": "Neurological Signaling &amp; Cognitive Pathways Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/SEMAX10mg.webp",
+    "variations": [],
+    "simple_price": "62.90",
+    "simple_regular_price": "74.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/SEMAX10mg.webp": "semax-99d90748.webp"
+    }
+  },
+  {
+    "slug": "sermorelin",
+    "name": "Sermorelin",
+    "seo_title": "Sermorelin Peak Performance Research Peptide",
+    "description": "Sermorelin Peak Performance Research Peptides model GH pulsatility, aid in recovery & body composition. High purity, USA-made, COA included.",
+    "category": "Musculoskeletal Function &amp; Protein Synthesis Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/SERMORELIN-5-MG-NEW1-1024x1024.webp",
+    "variations": [
+      {
+        "sku": "36-1446-10",
+        "variant": "Research",
+        "display_name": "Sermorelin - Research",
+        "price": 49.73,
+        "regular_price": 58.5,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/Sermorelin-5mg-3.webp",
+        "in_stock": true
+      },
+      {
+        "sku": "36-1446-10C",
+        "variant": "Clinical",
+        "display_name": "Sermorelin - Clinical",
+        "price": 205,
+        "regular_price": 205,
+        "image": "https://aminovault.com/wp-content/uploads/2026/07/SermorelinClinical10mg.webp",
+        "in_stock": true
+      }
+    ],
+    "simple_price": null,
+    "simple_regular_price": null,
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2026/07/SermorelinClinical10mg.webp": "sermorelin-9f62fb2f.webp",
+      "https://aminovault.com/wp-content/uploads/2025/07/Sermorelin-5mg-3.webp": "sermorelin-e5f65315.webp",
+      "https://aminovault.com/wp-content/uploads/2025/07/SERMORELIN-5-MG-NEW1-1024x1024.webp": "sermorelin-67634f12.webp"
+    }
+  },
+  {
+    "slug": "slu-pp-332-5mg",
+    "name": "SLU-PP-332 5mg",
+    "seo_title": "SLU-PP-332 - Exercise Mimetic ERR Agonist",
+    "description": "SLU-PP-332 5 mg research peptide for ERR signaling, exercise-mimetic studies, mitochondrial bioenergetics, fatty-acid oxidation, & metabolic research.",
+    "category": "Metabolic Regulation &amp; Energy Pathway Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/SLU-pp-332-5mg.webp",
+    "variations": [],
+    "simple_price": "64.60",
+    "simple_regular_price": "76.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/SLU-pp-332-5mg.webp": "slu-pp-332-5mg-b565933a.webp"
+    }
+  },
+  {
+    "slug": "tb-500-thymosin-beta-4-43aa",
+    "name": "TB-500 10mg",
+    "seo_title": "TB-500 - USA Made 99%+ Research Peptide",
+    "description": "Research grade TB-500 (Thymosin Beta-4, 43aa) USA Made. \u226599% purity with batch COA. Fast shipping. For laboratory research only.",
+    "category": "Immune Modulation &amp; Regenerative Processes Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/TB500SHADOW_AV.webp",
+    "variations": [],
+    "simple_price": "58.65",
+    "simple_regular_price": "69.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/TB500SHADOW_AV.webp": "tb-500-thymosin-beta-4-43aa-11b4e31e.webp"
+    }
+  },
+  {
+    "slug": "tesamorelin",
+    "name": "Tesamorelin 10mg",
+    "seo_title": "Tesamorelin 99%+ Purity US Made Peptide",
+    "description": "GMPc Research Grade Tesamorelin US Made. \u226599% purity with batch COA. Fast U.S. shipping. For laboratory research only. Not for human use.",
+    "category": "Musculoskeletal Function &amp; Protein Synthesis Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/TESASHADOW_AV.webp",
+    "variations": [
+      {
+        "sku": "20-1842-10R",
+        "variant": "Research",
+        "display_name": "Tesamorelin 10mg - Research",
+        "price": 89.25,
+        "regular_price": 105,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/AminoVault-TES.webp",
+        "in_stock": true
+      },
+      {
+        "sku": "20-1842-10C",
+        "variant": "Clinical",
+        "display_name": "Tesamorelin 10mg - Clinical",
+        "price": 160.65,
+        "regular_price": 189,
+        "image": "https://aminovault.com/wp-content/uploads/2025/07/AminoVault-TES.webp",
+        "in_stock": true
+      }
+    ],
+    "simple_price": null,
+    "simple_regular_price": null,
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/TESASHADOW_AV.webp": "tesamorelin-55c0ddf0.webp",
+      "https://aminovault.com/wp-content/uploads/2025/07/AminoVault-TES.webp": "tesamorelin-3c6790bd.webp"
+    }
+  },
+  {
+    "slug": "thymalin",
+    "name": "Thymalin 10mg",
+    "seo_title": "Thymalin 10 mg Peptide Complex",
+    "description": "Thymalin 10 mg for immune-biology research: T-cell maturation, NK cell activity, and cytokine balance. \u226599% purity, USA GMP, COA included at AminoVault.",
+    "category": "Cellular Structure &amp; Matrix Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/Thymalin10MG.webp",
+    "variations": [],
+    "simple_price": "51.00",
+    "simple_regular_price": "60.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/Thymalin10MG.webp": "thymalin-78b9050f.webp"
+    }
+  },
+  {
+    "slug": "thymosin-alpha-1",
+    "name": "Thymosin Alpha-1 10 mg",
+    "seo_title": "Thymosin Alpha-1",
+    "description": "Study Thymosin Alpha-1 for immune modulation\u2014T-cell, dendritic-cell, and cytokine balance research. \u226599% purity, USA GMP manufacturing, COA included.",
+    "category": "Neurological Signaling &amp; Cognitive Pathways Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/thymosinalpha1.webp",
+    "variations": [],
+    "simple_price": "89.25",
+    "simple_regular_price": "105.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/thymosinalpha1.webp": "thymosin-alpha-1-6e261658.webp"
+    }
+  },
+  {
+    "slug": "tirz-glp-2",
+    "name": "GLP-2 (T) 10mg",
+    "seo_title": "Glucagon-Like Peptide-2 (1-33) Research Peptide",
+    "description": "GLP\u20112 is a GMPc US Made Research Peptide with \u226599% Purity and Batch COA. Fast Shipping. Research use only at AminoVault.",
+    "category": "Metabolic Regulation &amp; Energy Pathway Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/ShadowGLP-2.webp",
+    "variations": [],
+    "simple_price": "83.30",
+    "simple_regular_price": "98.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/ShadowGLP-2.webp": "tirz-glp-2-c886f438.webp"
+    }
+  },
+  {
+    "slug": "vitamin-b12",
+    "name": "Vitamin B12 20ml",
+    "seo_title": "Vitamin B12 20 mL",
+    "description": "Vitamin B12 20 mL for professional use. High-potency, quality-tested B12 to support energy metabolism, RBC formation, and nerve health at AminoVault",
+    "category": "Metabolic Regulation &amp; Energy Pathway Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2025/07/B1220ML.webp",
+    "variations": [],
+    "simple_price": "49.30",
+    "simple_regular_price": "58.00",
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2025/07/B1220ML.webp": "vitamin-b12-c77881b6.webp"
+    }
+  },
+  {
+    "slug": "wolverine-blend",
+    "name": "Wolverine Blend 20MG",
+    "seo_title": "Wolverine Blend - 99%+ Pure BPC-157/TB-500",
+    "description": "Wolverine Blend pairs BPC-157 and TB-500 for tissue remodeling research, cell migration, angiogenic signaling, and recovery biology. \u226599% purity, USA GMP, COA included.",
+    "category": "Immune Modulation &amp; Regenerative Processes Research",
+    "main_image": "https://aminovault.com/wp-content/uploads/2026/06/Wolverine20mg-1.webp",
+    "variations": [
+      {
+        "sku": "02-1192-10-1456",
+        "variant": "Research",
+        "display_name": "Wolverine Blend 20MG - Research",
+        "price": 117.3,
+        "regular_price": 138,
+        "image": "https://aminovault.com/wp-content/uploads/2026/06/wolverine20mgv.webp",
+        "in_stock": true
+      },
+      {
+        "sku": "02-1192-10-1456C",
+        "variant": "Clinical",
+        "display_name": "Wolverine Blend 20MG - Clinical",
+        "price": 231,
+        "regular_price": 231,
+        "image": "https://aminovault.com/wp-content/uploads/2026/06/wolverine20mgv.webp",
+        "in_stock": true
+      }
+    ],
+    "simple_price": null,
+    "simple_regular_price": null,
+    "simple_sku": null,
+    "downloaded_images": {
+      "https://aminovault.com/wp-content/uploads/2026/06/Wolverine20mg-1.webp": "wolverine-blend-5f752237.webp",
+      "https://aminovault.com/wp-content/uploads/2026/06/wolverine20mgv.webp": "wolverine-blend-83c29bba.webp"
+    }
+  }
+]
