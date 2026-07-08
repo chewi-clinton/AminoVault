@@ -15,6 +15,11 @@ if env_hosts:
     default_hosts.extend([host.strip() for host in env_hosts.split(',') if host.strip()])
 ALLOWED_HOSTS = list(dict.fromkeys(default_hosts))
 
+# Dokploy's proxy terminates HTTPS and forwards to this container over plain
+# HTTP — without this, Django thinks every request is insecure (wrong scheme
+# in build_absolute_uri(), broken redirects, etc).
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
