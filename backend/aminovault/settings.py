@@ -66,13 +66,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'aminovault.wsgi.application'
 
-# NeonDB PostgreSQL
 DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL'),
         conn_max_age=600,
         conn_health_checks=True,
-        ssl_require=True,
+        ssl_require=os.environ.get('DB_SSL_REQUIRE', 'False') == 'True',
     )
 }
 
