@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Zap, Landmark, Smartphone, DollarSign, ArrowLeftRight, CreditCard, Bitcoin } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import "../styles/CheckoutPage.css";
 
 const API = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+const PAYMENT_METHODS = [
+  { value: "zelle", label: "Zelle", Icon: Zap },
+  { value: "chime", label: "Chime", Icon: Landmark },
+  { value: "apple_pay", label: "Apple Pay", Icon: Smartphone },
+  { value: "cash_app", label: "Cash App", Icon: DollarSign },
+  { value: "e_transfer", label: "E-Transfer", Icon: ArrowLeftRight },
+  { value: "venmo", label: "Venmo", Icon: CreditCard },
+  { value: "crypto", label: "Crypto", Icon: Bitcoin },
+];
 
 const EMPTY_FORM = {
   customer_first_name: "",
@@ -16,6 +27,7 @@ const EMPTY_FORM = {
   shipping_state: "",
   shipping_zip: "",
   shipping_country: "US",
+  payment_method: "",
   notes: "",
 };
 
@@ -45,9 +57,20 @@ export default function CheckoutPage() {
     setErrors((er) => { const n = { ...er }; delete n[name]; return n; });
   }
 
+  function selectPaymentMethod(value) {
+    setForm((f) => ({ ...f, payment_method: value }));
+    setErrors((er) => { const n = { ...er }; delete n.payment_method; return n; });
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     if (cartItems.length === 0) return;
+
+    if (!form.payment_method) {
+      setErrors((er) => ({ ...er, payment_method: ["Please select a payment method."] }));
+      document.getElementById("co-payment-section")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
 
     setSubmitting(true);
     setErrors({});
@@ -100,7 +123,9 @@ export default function CheckoutPage() {
             A confirmation email has been sent to <strong>{orderSuccess.customer_email}</strong>.
           </p>
           <p className="co-success-note">
-            Our team will process your order and reach out with shipping details.
+            Our team will email you payment instructions for{" "}
+            {PAYMENT_METHODS.find((m) => m.value === orderSuccess.payment_method)?.label || "your selected method"}{" "}
+            shortly, then process and ship your order once payment is confirmed.
           </p>
           <div className="co-success-summary">
             <div className="co-success-row"><span>Order total</span><span>${parseFloat(orderSuccess.total).toFixed(2)}</span></div>
@@ -132,8 +157,9 @@ export default function CheckoutPage() {
         <div className="contact-hero-content">
           <h1 className="contact-hero-title">Checkout</h1>
           <p className="contact-hero-description">
-            Complete your order below. No payment required — our team will contact
-            you to finalise your order.
+            Fill in your information and choose your preferred payment method
+            below. Our team will email you to finalize payment and confirm
+            your order.
           </p>
         </div>
       </section>
@@ -194,6 +220,39 @@ export default function CheckoutPage() {
                 <option value="OTHER">Other</option>
               </select>
             </CoField>
+          </div>
+
+          {/* Payment Method */}
+          <div className="co-section" id="co-payment-section">
+            <h3 className="co-section-title">Payment Method *</h3>
+            <p className="co-payment-hint">
+              Select how you'd like to pay. After you place your order, our
+              team will email you instructions to complete payment with the
+              method you choose.
+            </p>
+            <div className="co-payment-grid">
+              {PAYMENT_METHODS.map(({ value, label, Icon }) => (
+                <label
+                  key={value}
+                  className={`co-payment-option ${form.payment_method === value ? "selected" : ""}`}
+                >
+                  <input
+                    type="radio"
+                    name="payment_method"
+                    value={value}
+                    checked={form.payment_method === value}
+                    onChange={() => selectPaymentMethod(value)}
+                  />
+                  <Icon size={20} className="co-payment-icon" />
+                  <span className="co-payment-label">{label}</span>
+                </label>
+              ))}
+            </div>
+            {errors.payment_method && (
+              <span className="co-field-error">
+                {Array.isArray(errors.payment_method) ? errors.payment_method[0] : errors.payment_method}
+              </span>
+            )}
           </div>
 
           {/* Order Notes */}
@@ -291,8 +350,9 @@ export default function CheckoutPage() {
             </div>
 
             <p className="co-summary-note">
-              No payment required. Our team will confirm your order and provide
-              payment instructions via email.
+              No payment is collected on this page. Once you place your order,
+              our team will email you instructions to complete payment with
+              your selected method.
             </p>
           </div>
         </aside>

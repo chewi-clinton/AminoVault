@@ -49,6 +49,13 @@ export function CartProvider({ children }) {
     );
   };
 
+  const clearCart = () => setCartItems([]);
+
+  const subtotal = cartItems.reduce(
+    (sum, item) => sum + parseFloat(item.price || 0) * item.quantity,
+    0,
+  );
+
   const updateQuantity = (productId, quantity) => {
     if (quantity < 1) {
       removeFromCart(productId);
@@ -66,6 +73,8 @@ export function CartProvider({ children }) {
     addToCart,
     removeFromCart,
     updateQuantity,
+    clearCart,
+    subtotal,
     isCartOpen,
     openCart,
     closeCart,
