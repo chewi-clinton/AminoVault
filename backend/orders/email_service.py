@@ -33,6 +33,12 @@ Subtotal: ${order.subtotal}{discount_text}
 Shipping: {'FREE' if order.shipping_cost == 0 else f'${order.shipping_cost}'}
 Total: ${order.total}
 
+PAYMENT METHOD
+─────────────────────────────
+{order.get_payment_method_display()}
+Our team will email you payment instructions for this method shortly —
+your order will be processed once payment is confirmed.
+
 SHIPPING TO
 ─────────────────────────────
 {order.customer_full_name}
@@ -76,6 +82,12 @@ CUSTOMER
 Name: {order.customer_full_name}
 Email: {order.customer_email}
 Phone: {order.customer_phone or 'N/A'}
+
+PAYMENT METHOD REQUESTED
+─────────────────────────────
+{order.get_payment_method_display()}
+Reach out to the customer at {order.customer_email} with {order.get_payment_method_display()}
+payment instructions to proceed.
 
 SHIPPING ADDRESS
 ─────────────────────────────

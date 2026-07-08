@@ -99,6 +99,7 @@ def create_order(request):
         coupon=coupon_obj,
         coupon_code_used=coupon_code_used,
         notes=data.get('notes', ''),
+        payment_method=data['payment_method'],
     )
 
     # Create order items

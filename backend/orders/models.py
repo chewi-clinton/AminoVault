@@ -14,7 +14,18 @@ class Order(models.Model):
         ('refunded', 'Refunded'),
     ]
 
+    PAYMENT_METHOD_CHOICES = [
+        ('zelle', 'Zelle'),
+        ('chime', 'Chime'),
+        ('apple_pay', 'Apple Pay'),
+        ('cash_app', 'Cash App'),
+        ('e_transfer', 'E-Transfer'),
+        ('venmo', 'Venmo'),
+        ('crypto', 'Crypto'),
+    ]
+
     order_number = models.CharField(max_length=20, unique=True, editable=False)
+    payment_method = models.CharField(max_length=20, choices=PAYMENT_METHOD_CHOICES)
     customer_email = models.EmailField()
     customer_first_name = models.CharField(max_length=100)
     customer_last_name = models.CharField(max_length=100)

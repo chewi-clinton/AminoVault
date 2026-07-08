@@ -38,6 +38,7 @@ class OrderCreateSerializer(serializers.Serializer):
     shipping_protection = serializers.BooleanField(default=False)
     coupon_code = serializers.CharField(max_length=50, required=False, allow_blank=True, default='')
     notes = serializers.CharField(required=False, allow_blank=True, default='')
+    payment_method = serializers.ChoiceField(choices=Order.PAYMENT_METHOD_CHOICES)
 
 
 class OrderSerializer(serializers.ModelSerializer):
@@ -50,7 +51,7 @@ class OrderSerializer(serializers.ModelSerializer):
             'customer_phone', 'shipping_address_line1', 'shipping_address_line2',
             'shipping_city', 'shipping_state', 'shipping_zip', 'shipping_country',
             'items', 'subtotal', 'shipping_cost', 'shipping_protection',
-            'shipping_protection_cost', 'discount_amount', 'total',
+            'shipping_protection_cost', 'discount_amount', 'total', 'payment_method',
             'coupon_code_used', 'status', 'tracking_number', 'notes', 'created_at',
         ]
 

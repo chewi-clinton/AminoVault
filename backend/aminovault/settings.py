@@ -173,6 +173,7 @@ EMAIL_PORT = int(os.environ.get('BREVO_SMTP_PORT', 587))
 EMAIL_HOST_USER = os.environ.get('BREVO_SMTP_LOGIN', '')
 EMAIL_HOST_PASSWORD = os.environ.get('BREVO_SMTP_KEY', '')
 EMAIL_USE_TLS = True
+EMAIL_TIMEOUT = 10  # seconds — fail fast instead of hanging the checkout request if Brevo is unreachable
 
 STORE_OWNER_EMAIL = os.environ.get('STORE_OWNER_EMAIL', 'yomba.daniel@ictuniversity.edu.cm')
 STORE_FROM_EMAIL = os.environ.get('STORE_FROM_EMAIL', 'noreply@aminovault.com')

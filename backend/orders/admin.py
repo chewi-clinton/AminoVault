@@ -12,9 +12,9 @@ class OrderItemInline(admin.TabularInline):
 class OrderAdmin(admin.ModelAdmin):
     list_display = [
         'order_number', 'customer_full_name', 'customer_email',
-        'total', 'status', 'shipping_protection', 'created_at',
+        'total', 'payment_method', 'status', 'shipping_protection', 'created_at',
     ]
-    list_filter = ['status', 'shipping_protection', 'created_at']
+    list_filter = ['status', 'payment_method', 'shipping_protection', 'created_at']
     search_fields = ['order_number', 'customer_email', 'customer_first_name', 'customer_last_name']
     readonly_fields = ['order_number', 'subtotal', 'total', 'created_at', 'updated_at']
     inlines = [OrderItemInline]
