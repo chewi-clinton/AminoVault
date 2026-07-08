@@ -64,8 +64,8 @@
 
 .hero-content .hero-subtitle,
 .hero-content .hero-title,
-.hero-content .feature-item,
-.hero-content .feature-text,
+.hero-content .hero-feature-item,
+.hero-content .hero-feature-text,
 .hero-content .btn-shop-now {
   color: #ffffff !important;
 }
@@ -114,10 +114,10 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 6px;
 }
 
-.feature-item {
+.hero-feature-item {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -132,7 +132,7 @@
 }
 
 @media (max-width: 767px) {
-  .feature-item {
+  .hero-feature-item {
     font-size: 14px;
     letter-spacing: 0.1px;
     word-spacing: 0;
@@ -141,7 +141,7 @@
 }
 
 /* Icon Specific Styling */
-.feature-icon {
+.hero-feature-icon {
   color: #ca33d2;
   font-size: 22px;
   width: 25px;
@@ -151,18 +151,9 @@
 }
 
 @media (max-width: 767px) {
-  .feature-icon {
+  .hero-feature-icon {
     font-size: 16px;
   }
-}
-
-.icofont-molecule {
-  font-family: "IcoFont" !important;
-  font-style: normal;
-  font-weight: normal;
-  display: inline-block;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
 }
 
 .btn-shop-now {

@@ -1,4 +1,5 @@
 import React from "react";
+import { Atom } from "lucide-react";
 import "../../styles/HeroSection.css";
 
 const HeroSection = () => {
@@ -24,11 +25,11 @@ const HeroSection = () => {
 
           <ul className="hero-features">
             {features.map((text, index) => (
-              <li key={index} className="feature-item">
-                <span className="feature-icon">
-                  <i className="icofont icofont-molecule"></i>
+              <li key={index} className="hero-feature-item">
+                <span className="hero-feature-icon">
+                  <Atom size={22} strokeWidth={1.8} />
                 </span>
-                <span className="feature-text">{text}</span>
+                <span className="hero-feature-text">{text}</span>
               </li>
             ))}
           </ul>
