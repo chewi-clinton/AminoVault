@@ -541,6 +541,33 @@ body {
   color: #333333;
 }
 
+.ext-tab-panel h4 {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3em;
+  margin: 24px 0 10px 0;
+  color: var(--color-secondary);
+}
+
+.ext-tab-panel ul {
+  margin: 0 0 16px 0;
+  padding-left: 20px;
+}
+
+.ext-tab-panel ul ul {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.ext-tab-panel li {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.6em;
+  color: #333333;
+  margin-bottom: 6px;
+}
+
 /* Description tab paragraphs — EXACT body text styling from live site */
 .ext-tab-panel p {
   font-family: "DM Sans", sans-serif;
