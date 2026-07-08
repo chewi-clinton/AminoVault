@@ -40,6 +40,13 @@
   right: 0;
 }
 
+@media (max-width: 520px) {
+  .cart-drawer {
+    width: 100vw;
+    right: -100vw;
+  }
+}
+
 /* Header */
 .cart-header {
   display: flex;
