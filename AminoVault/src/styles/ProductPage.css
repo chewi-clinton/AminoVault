@@ -26,7 +26,6 @@ body {
   color: var(--color-text-main);
   background-color: #ffffff;
   margin: 0;
-  padding: 20px;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
 }
@@ -811,9 +810,6 @@ body {
 }
 
 @media (max-width: 768px) {
-  body {
-    padding: 10px; /* Reduce body padding on mobile */
-  }
   .product-details {
     padding: 20px;
   }
