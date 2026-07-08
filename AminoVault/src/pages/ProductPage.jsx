@@ -3,41 +3,26 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import "../styles/ProductPage.css";
 import { useCart } from "../context/CartContext";
+import faqData from "../data/faqData";
+import certGmp from "../assets/product/cert-gmp.webp";
+import certUsa from "../assets/product/cert-usa.png";
+import galleryImg1 from "../assets/product/gallery-1.webp";
+import galleryImg2 from "../assets/product/gallery-2.webp";
+import galleryImg3 from "../assets/product/gallery-3.webp";
 
 const API = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
-const faqs = [
-  {
-    question: "What makes AminoVault different from other peptide suppliers?",
-    answer:
-      "At AminoVault, our commitment is to scientific integrity and unmatched product quality. We provide research-exclusive peptides and specialty compounds formulated with the highest-purity ingredients, sourced from GMP-certified facilities. Every batch undergoes rigorous third-party testing to ensure precision, consistency, and compliance.",
-  },
-  {
-    question: "Are your products safe?",
-    answer:
-      "All of our compounds are produced in GMP-certified facilities and undergo comprehensive third-party testing to verify identity, purity, and consistency. While our products are not intended for human consumption, they meet the highest benchmarks for laboratory and research use.",
-  },
-  {
-    question: "How do you ensure the consistency of each peptide batch?",
-    answer:
-      "Every batch of AminoVault peptides is subject to a multi-point quality control process, including High-Performance Liquid Chromatography (HPLC) and Mass Spectrometry (MS) testing. Results are documented in detailed COAs, available for customer review.",
-  },
-  {
-    question: "Do your products contain any hidden additives or fillers?",
-    answer:
-      "Absolutely not. AminoVault peptides are lyophilized to pure powder form, free of fillers, dyes, preservatives, or binding agents.",
-  },
-  {
-    question: "How quickly do you ship orders?",
-    answer:
-      "Most in-stock items are processed and shipped within 1–3 business days, carefully packaged with temperature-control insulation to maintain compound stability during transit.",
-  },
-  {
-    question: "What kind of documentation is provided with each order?",
-    answer:
-      "Every AminoVault order includes access to a Certificate of Analysis (COA) that provides a comprehensive breakdown of the product's purity level, molecular identity, and batch traceability.",
-  },
-];
+const faqs = faqData;
+
+function getBulkInfo(qty) {
+  if (qty >= 8) {
+    return { tier: 20, nextGoal: null, nextTier: null, progressGoal: 8 };
+  }
+  if (qty >= 6) {
+    return { tier: 18, nextGoal: 8, nextTier: 20, progressGoal: 8 };
+  }
+  return { tier: 15, nextGoal: 6, nextTier: 18, progressGoal: 6 };
+}
 
 function mapProduct(p) {
   return {
@@ -52,6 +37,7 @@ function mapProduct(p) {
     inStock: p.in_stock,
     discountPercentage: p.discount_percentage || 0,
     category: p.category || null,
+    longDescriptionHtml: p.long_description_html || "",
   };
 }
 
@@ -132,6 +118,8 @@ const ProductPage = () => {
       </div>
     );
   }
+
+  const bulkInfo = getBulkInfo(quantity);
 
   if (notFound || !product) {
     return (
@@ -222,8 +210,33 @@ const ProductPage = () => {
                 </svg>
                 Bulk savings
               </div>
-              <span className="bulk-tiers-text">18% off 6+, 20% off 8+</span>
+              <span className="bulk-tiers-text">15% off, 18% for 6+, 20% for 8+</span>
             </div>
+
+            <div className="bulk-live-msg">
+              {bulkInfo.nextGoal
+                ? `You've got ${bulkInfo.tier}% off. Add ${bulkInfo.nextGoal}+ bottles to unlock ${bulkInfo.nextTier}%${
+                    bulkInfo.nextGoal === 6 ? ", add 8+ for 20%." : "."
+                  }`
+                : `You've got ${bulkInfo.tier}% off — our maximum bulk discount!`}
+            </div>
+
+            {bulkInfo.nextGoal && (
+              <div className="bulk-progress-container">
+                <div className="bulk-progress-bar">
+                  <div
+                    className="bulk-progress-fill"
+                    style={{
+                      width: `${Math.min(100, (quantity / bulkInfo.progressGoal) * 100)}%`,
+                    }}
+                  ></div>
+                </div>
+                <div className="bulk-progress-meta">
+                  <span>Add bottles to save</span>
+                  <span>Goal: {bulkInfo.progressGoal}+</span>
+                </div>
+              </div>
+            )}
 
             <details className="bulk-dropdown">
               <summary>
@@ -260,6 +273,11 @@ const ProductPage = () => {
                 </tbody>
               </table>
             </details>
+          </div>
+
+          <div className="product-rating">
+            <span className="stars">★★★★★</span>
+            <span className="rating-text">5 Star Rating by 1000+ Customers</span>
           </div>
 
           <div className="product-description">
@@ -337,15 +355,23 @@ const ProductPage = () => {
               role="tabpanel"
             >
               <h2>Description</h2>
-              <p>
-                {product.description ||
-                  `${product.name} is supplied strictly for laboratory research purposes. This product is not a drug, dietary supplement, cosmetic, food ingredient, or consumer product. It is not intended to diagnose, treat, cure, prevent, or mitigate any disease or medical condition.`}
-              </p>
-              <p>
-                This material should only be handled by qualified professionals
-                in appropriate laboratory settings. Any human or animal use is
-                strictly prohibited.
-              </p>
+              {product.longDescriptionHtml ? (
+                <div
+                  dangerouslySetInnerHTML={{ __html: product.longDescriptionHtml }}
+                />
+              ) : (
+                <>
+                  <p>
+                    {product.description ||
+                      `${product.name} is supplied strictly for laboratory research purposes. This product is not a drug, dietary supplement, cosmetic, food ingredient, or consumer product. It is not intended to diagnose, treat, cure, prevent, or mitigate any disease or medical condition.`}
+                  </p>
+                  <p>
+                    This material should only be handled by qualified professionals
+                    in appropriate laboratory settings. Any human or animal use is
+                    strictly prohibited.
+                  </p>
+                </>
+              )}
             </div>
 
             <div
@@ -409,6 +435,31 @@ const ProductPage = () => {
               })}
             </div>
           </div>
+
+          <div className="ext-cert-section">
+            <h3 className="ext-cert-title">Product Certifications</h3>
+            <div className="ext-cert-grid">
+              <img src={certGmp} alt="GMP Certified" className="ext-cert-badge" />
+              <img src={certUsa} alt="Made in USA" className="ext-cert-badge" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="ext-gallery-section">
+        <div className="ext-gallery-grid">
+          <div
+            className="ext-gallery-item"
+            style={{ backgroundImage: `url(${galleryImg1})` }}
+          ></div>
+          <div
+            className="ext-gallery-item"
+            style={{ backgroundImage: `url(${galleryImg2})` }}
+          ></div>
+          <div
+            className="ext-gallery-item"
+            style={{ backgroundImage: `url(${galleryImg3})` }}
+          ></div>
         </div>
       </div>
 

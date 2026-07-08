@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useCart } from "../../context/CartContext";
 import "../../styles/ProductPart.css";
 
@@ -49,13 +50,13 @@ const ProductPart = ({ categorySlug }) => {
       <div className="items-grid">
         {products.map((product) => (
           <div key={product.id} className="item-card">
-            <div className="image-container">
+            <Link to={`/product/${product.id}`} className="image-container">
               <img src={product.img} alt={product.name} className="item-img" />
-            </div>
+            </Link>
 
             <div className="item-info">
               <h5 className="item-title">
-                <a href={`/product/${product.id}`}>{product.name}</a>
+                <Link to={`/product/${product.id}`}>{product.name}</Link>
               </h5>
 
               <div className="card-footer-row">
