@@ -19,6 +19,7 @@ class Product(models.Model):
     sku = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
+    long_description_html = models.TextField(blank=True, help_text='Rich HTML shown in the product page Description tab')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True, related_name='products')
     price = models.DecimalField(max_digits=10, decimal_places=2)
     old_price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)

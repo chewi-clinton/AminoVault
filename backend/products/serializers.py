@@ -26,7 +26,7 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = [
-            'id', 'sku', 'name', 'description', 'category', 'category_id',
+            'id', 'sku', 'name', 'description', 'long_description_html', 'category', 'category_id',
             'price', 'old_price', 'image', 'image_url', 'image_src',
             'variant', 'in_stock', 'is_featured', 'is_upsell',
             'discount_percentage', 'sort_order', 'created_at',
@@ -47,7 +47,7 @@ class AdminProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = [
-            'id', 'sku', 'name', 'description', 'category_id', 'category_name',
+            'id', 'sku', 'name', 'description', 'long_description_html', 'category_id', 'category_name',
             'price', 'old_price', 'image', 'image_url', 'image_src',
             'variant', 'in_stock', 'is_featured', 'is_upsell',
             'discount_percentage', 'sort_order', 'created_at',

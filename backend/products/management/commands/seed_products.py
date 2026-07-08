@@ -72,6 +72,7 @@ class Command(BaseCommand):
             category = category_map.get(p['category'])
             name = html_unescape(p['name'])
             description = html_unescape(p['description'])
+            long_description_html = p.get('long_description_html', '')
             is_upsell = p['slug'] in UPSELL_SLUGS
             is_featured = p['slug'] in FEATURED_SLUGS
 
@@ -120,6 +121,7 @@ class Command(BaseCommand):
                     defaults={
                         'name': name,
                         'description': description,
+                        'long_description_html': long_description_html,
                         'category': category,
                         'price': row['price'],
                         'old_price': row['old_price'],
