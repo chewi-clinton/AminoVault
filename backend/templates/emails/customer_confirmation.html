@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Order Confirmation</title>
+  </head>
+  <body style="font-family: sans-serif; color: #333">
+    <h2>Thank You for Your Order, {{ order.customer_first_name }}!</h2>
+    <p>
+      Your order <strong>#{{ order.order_number }}</strong> has been
+      successfully placed.
+    </p>
+    <p>
+      We will notify you once it has been shipped. You can view your order
+      details below.
+    </p>
+    <hr />
+    <h3>Order Summary</h3>
+    <table width="100%" style="border-collapse: collapse">
+      <thead>
+        <tr>
+          <th
+            style="
+              text-align: left;
+              padding: 8px;
+              border-bottom: 1px solid #ddd;
+            "
+          >
+            Product
+          </th>
+          <th
+            style="
+              text-align: right;
+              padding: 8px;
+              border-bottom: 1px solid #ddd;
+            "
+          >
+            Total
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in order.items.all %}
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #ddd">
+            {{ item.quantity }} x {{ item.product.name }}
+          </td>
+          <td
+            style="
+              text-align: right;
+              padding: 8px;
+              border-bottom: 1px solid #ddd;
+            "
+          >
+            ${{ item.line_total }}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p style="text-align: right">
+      <strong>Subtotal:</strong> ${{ order.subtotal }}
+    </p>
+    <p style="text-align: right"><strong>Total:</strong> ${{ order.total }}</p>
+    <hr />
+    <p>Thank you for choosing AminoVault.</p>
+  </body>
+</html>

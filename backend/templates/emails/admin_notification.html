@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <title>New Order Notification</title>
+  </head>
+  <body style="font-family: sans-serif; color: #333">
+    <h2>New Order Received: #{{ order.order_number }}</h2>
+    <p>A new order has been placed on AminoVault.</p>
+    <hr />
+    <h3>Customer Details</h3>
+    <p>
+      <strong>Name:</strong> {{ order.customer_first_name }} {{
+      order.customer_last_name }}<br />
+      <strong>Email:</strong> {{ order.customer_email }}<br />
+      <strong>Payment Method:</strong> {{ order.get_payment_method_display }}
+    </p>
+    <h3>Order Summary</h3>
+    <table width="100%" style="border-collapse: collapse">
+      <thead>
+        <tr>
+          <th
+            style="
+              text-align: left;
+              padding: 8px;
+              border-bottom: 1px solid #ddd;
+            "
+          >
+            Product
+          </th>
+          <th
+            style="
+              text-align: right;
+              padding: 8px;
+              border-bottom: 1px solid #ddd;
+            "
+          >
+            Total
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in order.items.all %}
+        <tr>
+          <td style="padding: 8px; border-bottom: 1px solid #ddd">
+            {{ item.quantity }} x {{ item.product.name }}
+          </td>
+          <td
+            style="
+              text-align: right;
+              padding: 8px;
+              border-bottom: 1px solid #ddd;
+            "
+          >
+            ${{ item.line_total }}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p style="text-align: right"><strong>Total:</strong> ${{ order.total }}</p>
+    <hr />
+    <p>Please process this order in the admin panel.</p>
+  </body>
+</html>
