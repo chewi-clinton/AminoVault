@@ -66,6 +66,7 @@ class Command(BaseCommand):
         self.stdout.write('Seeding products...')
         sort_order = 1
         count = 0
+        seen_skus = set()
 
         for p in products_data:
             category = category_map.get(p['category'])
@@ -76,19 +77,24 @@ class Command(BaseCommand):
 
             rows = []
             if p['variations']:
-                for v in p['variations']:
-                    price = v['price']
-                    regular = v['regular_price']
-                    old_price = regular if regular and float(regular) > float(price) else None
-                    sku = v['sku'] or f"AV-{slugify(p['slug'])}-{slugify(v['variant'])}"
-                    rows.append({
-                        'sku': sku,
-                        'variant': v['variant'],
-                        'price': price,
-                        'old_price': old_price,
-                        'in_stock': v.get('in_stock', True),
-                        'image_url': v.get('image'),
-                    })
+                # WooCommerce shows variable products (grade/dosage options) as a
+                # single product card, with the variant picked on the product page.
+                # Our model has no parent/variant grouping, so seed just one row —
+                # the cheapest in-stock option — rather than one row per variant.
+                in_stock = [v for v in p['variations'] if v.get('in_stock', True)]
+                v = (in_stock or p['variations'])[0]
+                price = v['price']
+                regular = v['regular_price']
+                old_price = regular if regular and float(regular) > float(price) else None
+                sku = v['sku'] or f"AV-{slugify(p['slug'])}-{slugify(v['variant'])}"
+                rows.append({
+                    'sku': sku,
+                    'variant': v['variant'],
+                    'price': price,
+                    'old_price': old_price,
+                    'in_stock': v.get('in_stock', True),
+                    'image_url': v.get('image'),
+                })
             else:
                 price = p['simple_price']
                 regular = p['simple_regular_price']
@@ -136,9 +142,16 @@ class Command(BaseCommand):
                                 f'    image upload failed for {product.name}: {e}'
                             ))
 
+                seen_skus.add(row['sku'])
                 sort_order += 1
                 count += 1
                 self.stdout.write(f'  [{"Created" if created else "Updated"}] {product.name} ({product.variant or "-"})')
+
+        stale = Product.objects.exclude(sku__in=seen_skus)
+        stale_count = stale.count()
+        if stale_count:
+            self.stdout.write(f'Removing {stale_count} stale product(s) no longer in seed data...')
+            stale.delete()
 
         self.stdout.write(self.style.SUCCESS(
             f'\nDone! {count} products across {len(category_map)} categories seeded.'
