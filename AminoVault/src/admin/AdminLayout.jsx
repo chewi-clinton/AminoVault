@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./AdminLayout.css";
 import logo from "../assets/Footer_logo.webp";
@@ -6,6 +6,7 @@ import logo from "../assets/Footer_logo.webp";
 export default function AdminLayout({ children }) {
   const navigate = useNavigate();
   const admin = JSON.parse(localStorage.getItem("adminUser") || "null");
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     if (!admin?.is_staff) {
@@ -21,9 +22,18 @@ export default function AdminLayout({ children }) {
     navigate("/admin/login", { replace: true });
   }
 
+  function closeSidebar() {
+    setIsSidebarOpen(false);
+  }
+
   return (
     <div className="av-admin-shell">
-      <aside className="av-admin-sidebar">
+      <div
+        className={`av-admin-overlay ${isSidebarOpen ? "open" : ""}`}
+        onClick={closeSidebar}
+      />
+
+      <aside className={`av-admin-sidebar ${isSidebarOpen ? "open" : ""}`}>
         <div className="av-admin-logo">
           <img src={logo} alt="AminoVault" className="av-admin-logo-img" />
         </div>
@@ -31,6 +41,7 @@ export default function AdminLayout({ children }) {
         <nav className="av-admin-nav">
           <NavLink
             to="/admin/dashboard"
+            onClick={closeSidebar}
             className={({ isActive }) =>
               "av-admin-nav-link" + (isActive ? " active" : "")
             }
@@ -54,11 +65,12 @@ export default function AdminLayout({ children }) {
                 strokeLinejoin="round"
               />
             </svg>
-            Dashboard
+            <span>Dashboard</span>
           </NavLink>
 
           <NavLink
             to="/admin/products"
+            onClick={closeSidebar}
             className={({ isActive }) =>
               "av-admin-nav-link" + (isActive ? " active" : "")
             }
@@ -73,7 +85,7 @@ export default function AdminLayout({ children }) {
             >
               <path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z" />
             </svg>
-            Products
+            <span>Products</span>
           </NavLink>
         </nav>
 
@@ -92,12 +104,23 @@ export default function AdminLayout({ children }) {
               strokeLinejoin="round"
             />
           </svg>
-          Logout
+          <span>Logout</span>
         </button>
       </aside>
 
       <main className="av-admin-main">
         <header className="av-admin-topbar">
+          <button
+            type="button"
+            className="av-admin-menu-toggle"
+            onClick={() => setIsSidebarOpen((prev) => !prev)}
+            aria-label="Toggle sidebar"
+            aria-expanded={isSidebarOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
           <span className="av-admin-topbar-greeting">
             Welcome, <strong>{admin?.username || "Admin"}</strong>
           </span>
