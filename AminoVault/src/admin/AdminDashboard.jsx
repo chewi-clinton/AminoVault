@@ -1,10 +1,53 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AdminLayout from "./AdminLayout";
 import "./AdminDashboard.css";
 
+const API = import.meta.env.VITE_API_URL || "http://localhost:8000";
+
+function authHeaders() {
+  return { Authorization: `Bearer ${localStorage.getItem("adminToken")}` };
+}
+
 export default function AdminDashboard() {
   const navigate = useNavigate();
   const admin = JSON.parse(localStorage.getItem("adminUser") || "null");
+
+  const [stats, setStats] = useState({
+    totalProducts: null,
+    totalOrders: null,
+    revenue: null,
+    newCustomers: null,
+  });
+
+  useEffect(() => {
+    fetch(`${API}/api/products/admin/?page_size=1`, { headers: authHeaders() })
+      .then((r) => {
+        if (r.status === 401 || r.status === 403) {
+          navigate("/admin/login", { replace: true });
+          return null;
+        }
+        return r.json();
+      })
+      .then((data) => {
+        if (data) setStats((s) => ({ ...s, totalProducts: data.count ?? null }));
+      })
+      .catch(() => {});
+
+    fetch(`${API}/api/orders/admin/stats/`, { headers: authHeaders() })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (data) {
+          setStats((s) => ({
+            ...s,
+            totalOrders: data.total_orders,
+            revenue: data.revenue,
+            newCustomers: data.new_customers,
+          }));
+        }
+      })
+      .catch(() => {});
+  }, [navigate]);
 
   return (
     <AdminLayout>
@@ -16,25 +59,26 @@ export default function AdminDashboard() {
       </div>
 
       <div className="avd-grid">
-        {/* Placeholder for stats cards */}
         <div className="avd-card">
           <h3 className="avd-card-title">Total Products</h3>
-          <p className="avd-card-value">--</p>
+          <p className="avd-card-value">{stats.totalProducts ?? "--"}</p>
           <p className="avd-card-desc">Number of products in the store</p>
         </div>
         <div className="avd-card">
           <h3 className="avd-card-title">Total Orders</h3>
-          <p className="avd-card-value">--</p>
-          <p className="avd-card-desc">Number of completed orders</p>
+          <p className="avd-card-value">{stats.totalOrders ?? "--"}</p>
+          <p className="avd-card-desc">Number of orders placed</p>
         </div>
         <div className="avd-card">
           <h3 className="avd-card-title">Revenue</h3>
-          <p className="avd-card-value">$ --</p>
+          <p className="avd-card-value">
+            {stats.revenue !== null ? `$${parseFloat(stats.revenue).toFixed(2)}` : "$ --"}
+          </p>
           <p className="avd-card-desc">Total sales revenue</p>
         </div>
         <div className="avd-card">
           <h3 className="avd-card-title">New Customers</h3>
-          <p className="avd-card-value">--</p>
+          <p className="avd-card-value">{stats.newCustomers ?? "--"}</p>
           <p className="avd-card-desc">This month</p>
         </div>
       </div>

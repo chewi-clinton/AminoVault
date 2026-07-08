@@ -9,9 +9,8 @@ export default function AdminLayout({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
-    if (!admin?.is_staff) {
-      // The line below is commented out to allow access without login.
-      // navigate("/admin/login", { replace: true });
+    if (!localStorage.getItem("adminToken") || !admin?.is_staff) {
+      navigate("/admin/login", { replace: true });
     }
   }, [admin?.is_staff, navigate]);
 

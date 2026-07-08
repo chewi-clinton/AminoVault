@@ -4,13 +4,16 @@ import "../../styles/ProductPart.css";
 
 const API = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
-const ProductPart = () => {
+const ProductPart = ({ categorySlug }) => {
   const { addToCart } = useCart();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${API}/api/products/?page_size=100`)
+    setLoading(true);
+    const params = new URLSearchParams({ page_size: "100" });
+    if (categorySlug) params.set("category__slug", categorySlug);
+    fetch(`${API}/api/products/?${params.toString()}`)
       .then((r) => r.json())
       .then((data) => {
         const items = data.results ?? data;
@@ -28,7 +31,7 @@ const ProductPart = () => {
       })
       .catch(() => {})
       .finally(() => setLoading(false));
-  }, []);
+  }, [categorySlug]);
 
   if (loading) {
     return (

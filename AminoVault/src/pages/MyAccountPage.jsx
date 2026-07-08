@@ -15,7 +15,7 @@ const MyAccountPage = () => {
   const [loggingIn, setLoggingIn] = useState(false);
 
   // Register state
-  const [regForm, setRegForm] = useState({ username: "", email: "", password: "" });
+  const [regForm, setRegForm] = useState({ username: "", email: "", password: "", password2: "" });
   const [regErrors, setRegErrors] = useState({});
   const [regSuccess, setRegSuccess] = useState("");
   const [registering, setRegistering] = useState(false);
@@ -74,7 +74,7 @@ const MyAccountPage = () => {
         return;
       }
       setRegSuccess("Account created! You can now log in.");
-      setRegForm({ username: "", email: "", password: "" });
+      setRegForm({ username: "", email: "", password: "", password2: "" });
     } catch {
       setRegErrors({ non_field_errors: ["Network error. Please try again."] });
     } finally {
@@ -220,6 +220,17 @@ const MyAccountPage = () => {
                     </button>
                   </div>
                   {regErrors.password && <span style={{ color: "#dc2626", fontSize: "12px" }}>{regErrors.password[0]}</span>}
+                </div>
+                <div className="form-group">
+                  <label>Confirm Password <span className="required">*</span></label>
+                  <input
+                    type={showRegisterPassword ? "text" : "password"}
+                    className="input-field"
+                    value={regForm.password2}
+                    onChange={(e) => setRegForm((f) => ({ ...f, password2: e.target.value }))}
+                    required
+                  />
+                  {regErrors.password2 && <span style={{ color: "#dc2626", fontSize: "12px" }}>{regErrors.password2[0]}</span>}
                 </div>
                 <p className="register-notice">
                   Your personal data will be used to support your experience throughout
