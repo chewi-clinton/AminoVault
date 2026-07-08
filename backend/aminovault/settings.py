@@ -9,7 +9,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-dev-key-change-in-prod')
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
-ALLOWED_HOSTS = [host.strip() for host in os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1,0.0.0.0,amino-vault.com,www.amino-vault.com,backend.amino-vault.com').split(',') if host.strip()]
+default_hosts = ['localhost', '127.0.0.1', '0.0.0.0', 'amino-vault.com', 'www.amino-vault.com', 'backend.amino-vault.com']
+env_hosts = os.environ.get('ALLOWED_HOSTS', '')
+if env_hosts:
+    default_hosts.extend([host.strip() for host in env_hosts.split(',') if host.strip()])
+ALLOWED_HOSTS = list(dict.fromkeys(default_hosts))
 
 INSTALLED_APPS = [
     'django.contrib.admin',
