@@ -79,9 +79,10 @@ function AppRoutes() {
         <Route path="/" element={<HomePage />} />
         <Route path="/shop" element={<Shoppage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/product-page" element={<ProductPage />} />
+        <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/faqs" element={<FAQsPage />} />
+        <Route path="/shop/:categorySlug" element={<Shoppage />} />
         <Route path="/product-category" element={<ProductCategoryPage />} />
         <Route path="/wholesale" element={<WholeSalePage />} />
         <Route path="/my-account" element={<MyAccountPage />} />
