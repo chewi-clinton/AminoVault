@@ -1,3 +1,143 @@
 @import "./Hero.css";
 
-/* Add page-specific styles for Lab Results page below */
+/* ============================================================
+   Lab Results page — exact clone of aminovault.com/lab-tests/
+   ============================================================ */
+
+.lab-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 32px;
+  font-family: "Mulish", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #ffffff;
+  background-image: linear-gradient(90deg, #8801ff 0%, #e91831 100%);
+  border-radius: 8px;
+  box-shadow: -6px 6px 9px 5px rgb(0 0 0 / 30%);
+  transition: background-image 0.3s;
+}
+
+.lab-btn:hover {
+  background-image: linear-gradient(90deg, #e81832 0%, #8a42ca 100%);
+}
+
+.lab-intro-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px 20px;
+}
+
+.lab-intro-section h2 {
+  font-family: "Michroma", sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #333333;
+  margin: 0 0 20px 0;
+}
+
+.lab-intro-section p {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.6em;
+  color: #333333;
+  margin: 0;
+}
+
+.lab-coa-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.lab-coa-title {
+  font-family: "Michroma", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #333333;
+  margin: 0 0 20px 0;
+}
+
+.lab-coa-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  background: #e5e5e5;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.lab-coa-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 10px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.lab-coa-item:hover {
+  transform: translateY(-3px);
+}
+
+.lab-coa-icon {
+  width: 40px;
+  height: 40px;
+  color: #f32c57;
+  fill: #f32c57;
+}
+
+.lab-coa-label {
+  font-family: "Michroma", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #333333;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.lab-info-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+@media (min-width: 900px) {
+  .lab-info-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.lab-info-col h3 {
+  font-family: "Michroma", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #333333;
+  margin: 0 0 20px 0;
+}
+
+.lab-info-col p {
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.6em;
+  color: #333333;
+  margin: 0 0 20px 0;
+}
+
+.lab-info-col p strong {
+  color: #333333;
+  font-weight: 700;
+}
