@@ -1,13 +1,17 @@
 from decimal import Decimal
 from django.db.models import Sum
 from django.utils import timezone
-from rest_framework import status
+from rest_framework import status, viewsets
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.permissions import AllowAny, IsAdminUser
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
 from products.models import Product, Coupon
 from .models import Order, OrderItem
-from .serializers import OrderCreateSerializer, OrderSerializer, OrderTrackSerializer
+from .serializers import (
+    OrderCreateSerializer, OrderSerializer, OrderTrackSerializer, AdminOrderUpdateSerializer,
+)
 from .email_service import send_order_confirmation_to_customer, send_order_notification_to_owner
 
 
@@ -162,3 +166,25 @@ def admin_stats(request):
         'revenue': str(revenue),
         'new_customers': new_customers,
     })
+
+
+class AdminOrderViewSet(viewsets.ModelViewSet):
+    """List/view all orders and update status or tracking number. Admin users only."""
+    queryset = Order.objects.all().prefetch_related('items')
+    permission_classes = [IsAdminUser]
+    http_method_names = ['get', 'patch', 'head', 'options']
+    filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['status', 'payment_method']
+    search_fields = ['order_number', 'customer_email', 'customer_first_name', 'customer_last_name']
+    ordering_fields = ['created_at', 'total', 'status']
+    ordering = ['-created_at']
+
+    def get_serializer_class(self):
+        if self.action in ('update', 'partial_update'):
+            return AdminOrderUpdateSerializer
+        return OrderSerializer
+
+    def partial_update(self, request, *args, **kwargs):
+        super().partial_update(request, *args, **kwargs)
+        instance = self.get_object()
+        return Response(OrderSerializer(instance).data)

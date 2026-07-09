@@ -59,3 +59,9 @@ class OrderSerializer(serializers.ModelSerializer):
 class OrderTrackSerializer(serializers.Serializer):
     order_number = serializers.CharField(max_length=20)
     billing_email = serializers.EmailField()
+
+
+class AdminOrderUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ['status', 'tracking_number']
