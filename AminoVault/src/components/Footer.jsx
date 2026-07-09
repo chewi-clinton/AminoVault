@@ -111,7 +111,7 @@ const Footer = () => {
 
         <div className="bottom-right social-links">
           <a
-            href="https://www.tiktok.com/@aminovault"
+            href="https://www.tiktok.com/@bill_gallant_"
             target="_blank"
             rel="noopener noreferrer"
           >
