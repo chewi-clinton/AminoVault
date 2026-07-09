@@ -144,7 +144,8 @@
 
 @media (max-width: 650px) {
   .items-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
   .card-footer-row {
     flex-direction: column;

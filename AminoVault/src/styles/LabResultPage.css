@@ -74,6 +74,7 @@
   border-radius: 4px;
 }
 
+
 .lab-coa-item {
   display: flex;
   flex-direction: column;
@@ -87,6 +88,18 @@
 
 .lab-coa-item:hover {
   transform: translateY(-3px);
+}
+
+@media (max-width: 480px) {
+  .lab-coa-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-coa-item {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+  }
 }
 
 .lab-coa-icon {
