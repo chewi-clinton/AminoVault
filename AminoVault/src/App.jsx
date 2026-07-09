@@ -32,6 +32,8 @@ import AdminLogin from "./admin/AdminLogin.jsx";
 import AdminDashboard from "./admin/AdminDashboard.jsx";
 import AdminProducts from "./admin/AdminProducts.jsx";
 import AdminProductForm from "./admin/AdminProductForm.jsx";
+import AdminOrders from "./admin/AdminOrders.jsx";
+import AdminOrderDetail from "./admin/AdminOrderDetail.jsx";
 import Cart from "./pages/Cart.jsx";
 
 function PublicLayout() {
@@ -69,6 +71,8 @@ function AppRoutes() {
       <Route path="/admin/products" element={<AdminProducts />} />
       <Route path="/admin/products/add" element={<AdminProductForm />} />
       <Route path="/admin/products/edit/:id" element={<AdminProductForm />} />
+      <Route path="/admin/orders" element={<AdminOrders />} />
+      <Route path="/admin/orders/:id" element={<AdminOrderDetail />} />
       <Route
         path="/admin"
         element={<Navigate to="/admin/dashboard" replace />}

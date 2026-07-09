@@ -36,6 +36,17 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
 }
 
+.avd-card-clickable {
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.avd-card-clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  border-color: #ca33d2;
+}
+
 .avd-card-title {
   font-size: 14px;
   font-weight: 600;

@@ -64,7 +64,7 @@ export default function AdminDashboard() {
           <p className="avd-card-value">{stats.totalProducts ?? "--"}</p>
           <p className="avd-card-desc">Number of products in the store</p>
         </div>
-        <div className="avd-card">
+        <div className="avd-card avd-card-clickable" onClick={() => navigate("/admin/orders")}>
           <h3 className="avd-card-title">Total Orders</h3>
           <p className="avd-card-value">{stats.totalOrders ?? "--"}</p>
           <p className="avd-card-desc">Number of orders placed</p>
@@ -98,7 +98,14 @@ export default function AdminDashboard() {
             </svg>
             <span>Manage Products</span>
           </button>
-          {/* Add more quick actions as needed */}
+          <button className="avd-action-btn" onClick={() => navigate("/admin/orders")}>
+            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M3 6h18" strokeLinecap="round" />
+              <path d="M16 10a4 4 0 01-8 0" strokeLinecap="round" />
+            </svg>
+            <span>View Orders</span>
+          </button>
         </div>
       </div>
     </AdminLayout>
