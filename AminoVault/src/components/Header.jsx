@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { ChevronDown } from "lucide-react";
 import "../styles/Header.css";
 import logo from "../assets/Amino_logo.webp";
 
@@ -191,9 +192,10 @@ const Header = ({ cartCount, onCartClick }) => {
             onClick={() => toggleMobileSubmenu("shop")}
           >
             <span>Shop</span>
-            <span className="submenu-indicator">
-              {openMobileSubmenu === "shop" ? "−" : "+"}
-            </span>
+            <ChevronDown
+              size={18}
+              className={`submenu-indicator ${openMobileSubmenu === "shop" ? "open" : ""}`}
+            />
           </div>
           {openMobileSubmenu === "shop" && (
             <div className="mobile-submenu">
@@ -225,9 +227,10 @@ const Header = ({ cartCount, onCartClick }) => {
             onClick={() => toggleMobileSubmenu("resources")}
           >
             <span>Resources</span>
-            <span className="submenu-indicator">
-              {openMobileSubmenu === "resources" ? "−" : "+"}
-            </span>
+            <ChevronDown
+              size={18}
+              className={`submenu-indicator ${openMobileSubmenu === "resources" ? "open" : ""}`}
+            />
           </div>
           {openMobileSubmenu === "resources" && (
             <div className="mobile-submenu">
