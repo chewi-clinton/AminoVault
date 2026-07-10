@@ -26,6 +26,8 @@ import TermsOfServicePage from "./pages/TermsOfServicePage.jsx";
 import TrackOrderPage from "./pages/TrackOrderPage.jsx";
 import WholeSalePage from "./pages/WholeSalePage.jsx";
 import CheckoutPage from "./pages/CheckoutPage.jsx";
+import BlogPage from "./pages/BlogPage.jsx";
+import BlogPostPage from "./pages/BlogPostPage.jsx";
 
 // Admin pages
 import AdminLogin from "./admin/AdminLogin.jsx";
@@ -99,6 +101,8 @@ function AppRoutes() {
           element={<ShippingAndReturnPolicyPage />}
         />
         <Route path="/checkout" element={<CheckoutPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
       </Route>
     </Routes>
   );
