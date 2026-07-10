@@ -175,7 +175,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('BREVO_SMTP_KEY', '')
 EMAIL_USE_TLS = True
 EMAIL_TIMEOUT = 10  # seconds — fail fast instead of hanging the checkout request if Brevo is unreachable
 
-STORE_OWNER_EMAIL = os.environ.get('STORE_OWNER_EMAIL', 'yomba.daniel@ictuniversity.edu.cm')
-STORE_FROM_EMAIL = os.environ.get('STORE_FROM_EMAIL', 'noreply@aminovault.com')
+STORE_OWNER_EMAIL = os.environ.get('STORE_OWNER_EMAIL', 'info@amino-vault.com')
+STORE_FROM_EMAIL = os.environ.get('STORE_FROM_EMAIL', 'info@amino-vault.com')
 STORE_NAME = os.environ.get('STORE_NAME', 'AminoVault')
 DEFAULT_FROM_EMAIL = f'{STORE_NAME} <{STORE_FROM_EMAIL}>'
