@@ -1,0 +1,65 @@
+{% extends "orders/email_base.html" %}
+{% block title %}Order Confirmation #{{ order.order_number }}{% endblock %}
+{% block content %}
+<p style="margin:0 0 4px 0; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:13px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; color:#ca33d2;">Order Confirmed</p>
+<h1 style="margin:0 0 18px 0; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:22px; color:#1a1a1a;">Thanks, {{ order.customer_first_name }}!</h1>
+<p style="margin:0 0 24px 0; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:15px; line-height:1.6; color:#444;">
+  We've received your order and it's being processed. Order number
+  <strong style="color:#1a1a1a;">#{{ order.order_number }}</strong>.
+</p>
+
+<!-- Items -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:20px; border:1px solid #eee; border-radius:8px; overflow:hidden;">
+  <tr>
+    <td style="background:#faf8fb; padding:10px 16px; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:#888;">Item</td>
+    <td style="background:#faf8fb; padding:10px 16px; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:#888; text-align:right;">Total</td>
+  </tr>
+  {% for item in order.items.all %}
+  <tr>
+    <td style="padding:12px 16px; border-top:1px solid #f0f0f0; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:14px; color:#333;">
+      {{ item.quantity }}&times; {{ item.product_name }}{% if item.variant %} <span style="color:#999;">({{ item.variant }})</span>{% endif %}
+    </td>
+    <td style="padding:12px 16px; border-top:1px solid #f0f0f0; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:14px; color:#333; text-align:right; white-space:nowrap;">${{ item.line_total }}</td>
+  </tr>
+  {% endfor %}
+  {% if order.shipping_protection %}
+  <tr>
+    <td style="padding:12px 16px; border-top:1px solid #f0f0f0; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:14px; color:#333;">Shipping Protection</td>
+    <td style="padding:12px 16px; border-top:1px solid #f0f0f0; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:14px; color:#333; text-align:right;">${{ order.shipping_protection_cost }}</td>
+  </tr>
+  {% endif %}
+  {% if order.discount_amount %}
+  <tr>
+    <td style="padding:12px 16px; border-top:1px solid #f0f0f0; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:14px; color:#ca33d2;">Discount</td>
+    <td style="padding:12px 16px; border-top:1px solid #f0f0f0; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:14px; color:#ca33d2; text-align:right;">-${{ order.discount_amount }}</td>
+  </tr>
+  {% endif %}
+  <tr>
+    <td style="padding:14px 16px; border-top:2px solid #eee; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:15px; font-weight:700; color:#1a1a1a;">Total</td>
+    <td style="padding:14px 16px; border-top:2px solid #eee; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:15px; font-weight:700; color:#1a1a1a; text-align:right;">${{ order.total }}</td>
+  </tr>
+</table>
+
+<!-- Payment instructions -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:20px; background:linear-gradient(135deg,#ca33d2,#8801ff); background-color:#ca33d2; border-radius:8px;">
+  <tr>
+    <td style="padding:18px 20px;">
+      <p style="margin:0 0 4px 0; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:#fff;">Payment Method: {{ order.get_payment_method_display }}</p>
+      <p style="margin:0; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:14px; line-height:1.5; color:#f5e9ff;">Our team will follow up shortly with instructions to complete payment via {{ order.get_payment_method_display }}. Your order will ship once payment is confirmed.</p>
+    </td>
+  </tr>
+</table>
+
+<!-- Shipping address -->
+<p style="margin:0 0 6px 0; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.4px; color:#888;">Shipping To</p>
+<p style="margin:0 0 24px 0; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:14px; line-height:1.6; color:#333;">
+  {{ order.customer_full_name }}<br>
+  {{ order.shipping_address_line1 }}{% if order.shipping_address_line2 %}<br>{{ order.shipping_address_line2 }}{% endif %}<br>
+  {{ order.shipping_city }}, {{ order.shipping_state }} {{ order.shipping_zip }}<br>
+  {{ order.shipping_country }}
+</p>
+
+<p style="margin:0; font-family:'Segoe UI', Helvetica, Arial, sans-serif; font-size:13px; line-height:1.6; color:#999;">
+  Questions about your order? Just reply to this email.
+</p>
+{% endblock %}
