@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../styles/AminoDetailsPage.css";
 
 import seenOnImg from "../../assets/About_img1.webp";
@@ -83,9 +84,9 @@ const AminoDetailsPage = () => {
             </ul>
           </div>
           <div className="btn-row-left">
-            <a href="/lab-tests" className="btn-gradient">
+            <Link to="/lab-results" className="btn-gradient">
               VERIFIED COA'S
-            </a>
+            </Link>
           </div>
         </div>
 
